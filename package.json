@@ -1,0 +1,52 @@
+{
+  "name": "next-js",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev -p 4444",
+    "build": "next build",
+    "start": "next start",
+    "format": "eslint . --ext ts,js --fix",
+    "test": "jest --maxWorkers=50%",
+    "test:watch": "jest --watch --maxWorkers=25%",
+    "generate": "yarn plop --plopfile generator/plopfile.js",
+    "storybook": "start-storybook -s ./public -p 9999",
+    "build-storybook": "build-storybook -s ./public"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^1.0.13",
+    "@chakra-ui/react": "^1.6.4",
+    "@chakra-ui/theme-tools": "1.1.7",
+    "@emotion/react": "11.4.0",
+    "@emotion/styled": "11.3.0",
+    "framer-motion": "4.1.17",
+    "next": "latest",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-typescript": "^7.14.5",
+    "@emotion/babel-plugin": "^11.3.0",
+    "@emotion/jest": "^11.3.0",
+    "@storybook/addon-actions": "^6.3.2",
+    "@storybook/addon-essentials": "^6.3.2",
+    "@storybook/addon-links": "^6.3.2",
+    "@storybook/react": "^6.3.2",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.14.0",
+    "@types/react": "^17.0.13",
+    "@types/react-dom": "^17.0.8",
+    "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "@typescript-eslint/parser": "^4.28.1",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.29.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "jest": "^27.0.6",
+    "lint-staged": "^11.0.0",
+    "plop": "^2.7.4",
+    "typescript": "4.3.5"
+  }
+}
