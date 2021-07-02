@@ -1,5 +1,5 @@
-import { Container } from '@chakra-ui/layout'
+import { Layout } from 'components'
 
-const Index = () => <Container>teste</Container>
+const Index = () => <Layout />
 
 export default Index
