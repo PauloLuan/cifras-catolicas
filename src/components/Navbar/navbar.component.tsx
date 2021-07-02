@@ -11,24 +11,23 @@ import {
   InputGroup,
   InputLeftElement,
   Link,
-  Spacer,
   useColorMode,
   useColorModeValue,
   useDisclosure,
   VStack
 } from '@chakra-ui/react'
-import { Logo } from '../Logo'
 import { useViewportScroll } from 'framer-motion'
 import React from 'react'
 import {
-  AiFillGithub,
   AiFillHome,
   AiOutlineInbox,
+  AiOutlineLogin,
   AiOutlineMenu
 } from 'react-icons/ai'
 import { BsFillCameraVideoFill } from 'react-icons/bs'
-import { FaHeart, FaMoon, FaSun } from 'react-icons/fa'
+import { FaMoon, FaSun } from 'react-icons/fa'
 import { FiSearch } from 'react-icons/fi'
+import { Logo } from '../Logo'
 
 const Navbar = () => {
   const mobileNav = useDisclosure()
@@ -52,7 +51,7 @@ const Navbar = () => {
       display={{ base: 'none', md: 'flex' }}
       alignItems="center"
       as="a"
-      aria-label="Sponsor Choc UI on Open Collective"
+      aria-label="Cifras Católicas encontr as melhores cifras"
       href={''}
       target="_blank"
       rel="noopener noreferrer"
@@ -67,8 +66,8 @@ const Navbar = () => {
       outline="0"
       transition="all 0.3s"
       _hover={{
-        bg: 'gray.100',
-        borderColor: 'gray.300'
+        bg: 'gray.300',
+        borderColor: 'gray.600'
       }}
       _active={{
         borderColor: 'gray.200'
@@ -78,9 +77,9 @@ const Navbar = () => {
       }}
       ml={5}
     >
-      <Icon as={FaHeart} w="4" h="4" color="red.500" mr="2" />
+      <Icon as={AiOutlineLogin} w="4" h="4" color="gray.600" mr="2" />
       <Box as="strong" lineHeight="inherit" fontWeight="semibold">
-        Sponsor
+        Login
       </Box>
     </Box>
   )
@@ -158,26 +157,10 @@ const Navbar = () => {
               align="center"
               color="gray.400"
             >
-              <HStack spacing="5" display={{ base: 'none', md: 'flex' }}>
-                <Link
-                  isExternal
-                  aria-label="Go to Choc UI GitHub page"
-                  href="https://github.com/anubra266/choc-ui"
-                >
-                  <Icon
-                    as={AiFillGithub}
-                    display="block"
-                    transition="color 0.2s"
-                    w="5"
-                    h="5"
-                    _hover={{ color: 'gray.600' }}
-                  />
-                </Link>
-              </HStack>
               <IconButton
                 size="md"
                 fontSize="lg"
-                aria-label={`Switch to ${text} mode`}
+                aria-label={`Mudar para o modo Noturno`}
                 variant="ghost"
                 color="current"
                 ml={{ base: '0', md: '3' }}
