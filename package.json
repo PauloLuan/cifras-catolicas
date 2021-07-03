@@ -21,6 +21,7 @@
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "@fontsource/roboto": "^4.4.5",
+    "@tombatossals/react-chords": "^0.2.10",
     "axios": "^0.21.1",
     "framer-motion": "^4.1.17",
     "next": "^11.0.1",
