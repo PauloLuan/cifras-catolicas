@@ -127,8 +127,6 @@ const Navbar = () => {
         shadow={y > height ? 'sm' : undefined}
         transition="box-shadow 0.2s"
         bg={bg}
-        borderTop="6px solid"
-        borderTopColor="brand.400"
         w="full"
         overflowY="hidden"
       >
