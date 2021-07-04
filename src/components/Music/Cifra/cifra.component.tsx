@@ -2,6 +2,7 @@ import { DomElement } from 'htmlparser2'
 import ReactHtmlParser from 'react-html-parser'
 import { Container } from '.'
 import { Chord } from '../Chord'
+import { get } from 'lodash'
 
 export interface CifraProps {
   cifra: string
@@ -9,7 +10,7 @@ export interface CifraProps {
 
 const transform = (node: DomElement) => {
   if (node.name === 'b') {
-    const value = node.children.data
+    const value = get(node, 'children[0].data')
     return <Chord value={value} />
   }
 }
