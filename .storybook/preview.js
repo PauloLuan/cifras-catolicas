@@ -4,7 +4,7 @@ import theme from '../src/styles/theme'
 
 export const parameters = {
   backgrounds: {
-    default: 'dark',
+    default: 'light',
     layout: 'fullscreen',
     values: [
       {

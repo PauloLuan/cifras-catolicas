@@ -10,7 +10,7 @@ import {
 import { default as ReactChord } from '@tombatossals/react-chords/lib/Chord'
 
 export interface ChordProps {
-  name?: string
+  value: string
 }
 
 const MyChord = () => {
@@ -33,20 +33,18 @@ const MyChord = () => {
   return <ReactChord chord={chord} instrument={instrument} lite={lite} />
 }
 
-export const Chord = ({ name }: ChordProps) => {
+export const Chord = ({ value }: ChordProps) => {
   return (
-    <Box data-testid="chord">
-      <Popover trigger="hover">
-        <PopoverTrigger>
-          <span>Am/E (coloca o mouse em cima de mim)</span>
-        </PopoverTrigger>
-        <PopoverContent>
-          <PopoverHeader>Am/E</PopoverHeader>
-          <PopoverBody>
-            <MyChord />
-          </PopoverBody>
-        </PopoverContent>
-      </Popover>
-    </Box>
+    <Popover trigger="hover">
+      <PopoverTrigger>
+        <b>{value}</b>
+      </PopoverTrigger>
+      <PopoverContent>
+        <PopoverHeader>{value}</PopoverHeader>
+        <PopoverBody>
+          <MyChord />
+        </PopoverBody>
+      </PopoverContent>
+    </Popover>
   )
 }
