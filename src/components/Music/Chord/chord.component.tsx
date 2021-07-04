@@ -1,6 +1,5 @@
 import {
-  Box,
-  Button,
+  Center,
   Popover,
   PopoverBody,
   PopoverContent,
@@ -40,9 +39,13 @@ export const Chord = ({ value }: ChordProps) => {
         <b>{value}</b>
       </PopoverTrigger>
       <PopoverContent>
-        <PopoverHeader>{value}</PopoverHeader>
+        <PopoverHeader>
+          <Center>{value}</Center>
+        </PopoverHeader>
         <PopoverBody>
-          <MyChord />
+          <Center>
+            <MyChord />
+          </Center>
         </PopoverBody>
       </PopoverContent>
     </Popover>
