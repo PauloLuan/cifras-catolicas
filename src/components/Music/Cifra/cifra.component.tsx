@@ -3,6 +3,7 @@ import ReactHtmlParser from 'react-html-parser'
 import { Container } from '.'
 import { Chord } from '../Chord'
 import { get } from 'lodash'
+import { Text } from '@chakra-ui/react'
 
 export interface CifraProps {
   cifra: string
@@ -18,7 +19,11 @@ const transform = (node: DomElement) => {
 export const Cifra = ({ cifra }: CifraProps) => {
   return (
     <Container>
-      <pre>{ReactHtmlParser(cifra, { transform })}</pre>
+      <pre>
+        <Text fontFamily="monospace" fontSize="14" letterSpacing="wider">
+          {ReactHtmlParser(cifra, { transform })}
+        </Text>
+      </pre>
     </Container>
   )
 }
