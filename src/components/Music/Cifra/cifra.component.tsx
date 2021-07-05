@@ -1,9 +1,9 @@
+import { Text } from '@chakra-ui/react'
 import { DomElement } from 'htmlparser2'
+import { get } from 'lodash'
 import ReactHtmlParser from 'react-html-parser'
 import { Container } from '.'
 import { Chord } from '../Chord'
-import { get } from 'lodash'
-import { Text } from '@chakra-ui/react'
 
 export interface CifraProps {
   cifra: string
