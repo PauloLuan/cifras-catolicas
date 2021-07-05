@@ -4,7 +4,8 @@ import {
   PopoverBody,
   PopoverContent,
   PopoverHeader,
-  PopoverTrigger
+  PopoverTrigger,
+  Text
 } from '@chakra-ui/react'
 import { default as ReactChord } from '@tombatossals/react-chords/lib/Chord'
 
@@ -36,7 +37,9 @@ export const Chord = ({ value }: ChordProps) => {
   return (
     <Popover trigger="hover">
       <PopoverTrigger>
-        <b>{value}</b>
+        <Text as="b" cursor="pointer">
+          {value}
+        </Text>
       </PopoverTrigger>
       <PopoverContent>
         <PopoverHeader>
