@@ -5,7 +5,8 @@
       "@components/*": ["components/*"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@types/*": ["@types/*"]
     },
     "allowJs": true,
     "alwaysStrict": true,
