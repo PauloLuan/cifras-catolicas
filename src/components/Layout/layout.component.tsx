@@ -1,16 +1,16 @@
-import { Navbar, Footer } from '..'
 import { Box } from '@chakra-ui/react'
-import { Main } from 'components/Main'
+import { ReactNode } from 'react'
+import { Footer, Navbar } from '..'
 
 export interface LayoutProps {
-  name?: string
+  children: ReactNode
 }
 
-export const Layout = ({ name }: LayoutProps) => {
+export const Layout = ({ children }: LayoutProps) => {
   return (
     <Box w="full" h="full">
       <Navbar />
-      <Main />
+      {children}
       <Footer />
     </Box>
   )
