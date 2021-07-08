@@ -8,10 +8,16 @@ import {
 } from '@chakra-ui/react'
 
 export interface TopArtistItemProps {
-  name?: string
+  index: number
+  musicName: string
+  artistName: string
 }
 
-export const TopArtistItem = ({ name }: TopArtistItemProps) => {
+export const TopArtistItem = ({
+  index,
+  musicName,
+  artistName
+}: TopArtistItemProps) => {
   return (
     <Flex
       w="full"
@@ -33,7 +39,7 @@ export const TopArtistItem = ({ name }: TopArtistItemProps) => {
             color={useColorModeValue('gray.400', 'white')}
             _groupHover={{ color: 'orange.500' }}
           >
-            1
+            {index}
           </chakra.h1>
         </Center>
       </Box>
@@ -45,7 +51,7 @@ export const TopArtistItem = ({ name }: TopArtistItemProps) => {
               color={useColorModeValue('gray.600', 'gray.400')}
               _groupHover={{ color: 'orange.500' }}
             >
-              Porque ele vive
+              {musicName}
             </chakra.strong>
           </Center>
           <Center>
@@ -53,7 +59,7 @@ export const TopArtistItem = ({ name }: TopArtistItemProps) => {
               fontSize="sm"
               color={useColorModeValue('gray.600', 'gray.400')}
             >
-              Harpa Cristã
+              {artistName}
             </chakra.span>
           </Center>
         </VStack>
