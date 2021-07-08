@@ -4,19 +4,23 @@ import {
   chakra,
   Flex,
   useColorModeValue,
-  VStack
+  VStack,
+  Avatar,
+  AvatarBadge
 } from '@chakra-ui/react'
 
 export interface TopArtistItemProps {
   index: number
-  musicName: string
+  views: number
   artistName: string
+  image: string
 }
 
 export const TopArtistItem = ({
   index,
-  musicName,
-  artistName
+  views = 0,
+  artistName,
+  image
 }: TopArtistItemProps) => {
   return (
     <Flex
@@ -25,41 +29,48 @@ export const TopArtistItem = ({
       justifyContent="center"
       shadow="lg"
       rounded="lg"
-      _hover={{ bg: 'orange.50' }}
+      bg="orange.50"
       role="group"
       colorScheme="orange"
       cursor="pointer"
     >
       <Box w={1 / 3}>
         <Center>
-          <chakra.h1
-            data-testid="top-artist-item"
-            fontSize="5xl"
-            fontWeight="bold"
-            color={useColorModeValue('gray.400', 'white')}
-            _groupHover={{ color: 'orange.500' }}
+          <Avatar
+            size="lg"
+            name={artistName}
+            src={image}
+            borderColor="papayawhip"
+            borderWidth={2}
+            bg="orange.400"
           >
-            {index}
-          </chakra.h1>
+            <AvatarBadge
+              borderColor="papayawhip"
+              borderWidth={2}
+              bg="orange.400"
+              boxSize="1.25em"
+            >
+              <chakra.p fontSize="0.7em" fontWeight="bold">
+                {index}
+              </chakra.p>
+            </AvatarBadge>
+          </Avatar>
         </Center>
       </Box>
       <Box w={2 / 3}>
         <VStack p={4}>
           <Center>
-            <chakra.strong
-              fontSize="md"
-              color={useColorModeValue('gray.600', 'gray.400')}
-              _groupHover={{ color: 'orange.500' }}
-            >
-              {musicName}
-            </chakra.strong>
+            <chakra.h1 fontSize="xl" fontWeight="bold" color={'orange.500'}>
+              {artistName}
+            </chakra.h1>
           </Center>
           <Center>
             <chakra.span
               fontSize="sm"
-              color={useColorModeValue('gray.600', 'gray.400')}
+              fontWeight="light"
+              color={useColorModeValue('gray.600', 'gray.100')}
             >
-              {artistName}
+              Visualizações: {new Intl.NumberFormat('pt-BR').format(views)}
             </chakra.span>
           </Center>
         </VStack>

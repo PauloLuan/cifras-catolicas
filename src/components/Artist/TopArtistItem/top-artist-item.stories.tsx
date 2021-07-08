@@ -11,7 +11,8 @@ export const primary = () => {
   const props: TopArtistItemProps = {
     index: 1,
     artistName: 'Harpa Cristã',
-    musicName: 'Porque ele vive'
+    image: 'https://bit.ly/code-beast',
+    views: 389456
   }
 
   return <TopArtistItem {...props} />

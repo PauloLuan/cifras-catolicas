@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-  TopMusicItem,
-  TopMusicItemProps
-} from '.'
+import { TopMusicItem, TopMusicItemProps } from '.'
 
 export default {
   component: TopMusicItem,
@@ -12,7 +9,9 @@ export default {
 export const primary = () => {
   /* eslint-disable-next-line */
   const props: TopMusicItemProps = {
-    name: 'Paulo Luan'
+    index: 1,
+    artistName: 'Harpa Cristã',
+    musicName: 'Porque ele vive'
   }
 
   return <TopMusicItem {...props} />
