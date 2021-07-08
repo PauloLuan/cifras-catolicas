@@ -1,9 +1,12 @@
+import { Box, Heading, Link } from '@chakra-ui/react'
+import { Layout } from '@components/Layout'
 import { Artist } from '@types/Artist'
-import { InferGetServerSidePropsType } from 'next'
+import { InferGetStaticPropsType, NextPage } from 'next'
+import NextLink from 'next/link'
 
 const ENDPOINT = `https://api.musicasparamissa.com.br/cifrascatolicas/artistas`
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const res = await fetch(ENDPOINT)
   const artists: Artist[] = await res.json()
 
@@ -14,17 +17,31 @@ export const getServerSideProps = async () => {
   }
 }
 
-const ListArtists = ({
+const ListArtists: NextPage<{ artists: Artist[] }> = ({
   artists
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <>
-      <h1>artistas</h1>
-      <ul>
-        {artists &&
-          artists.map((artist) => <li key={artist.slug}>{artist.nome}</li>)}
-      </ul>
-    </>
+    <Layout>
+      <Box p={8}>
+        <ul>
+          {artists &&
+            artists.map((artist) => (
+              <NextLink
+                as={`/artistas/${artist.slug}`}
+                href={`/artistas/[slug]`}
+                passHref
+                key={`/artistas/${artist.slug}`}
+              >
+                <Link>
+                  <Heading as="h3" size="lg">
+                    {artist.nome}
+                  </Heading>
+                </Link>
+              </NextLink>
+            ))}
+        </ul>
+      </Box>
+    </Layout>
   )
 }
 
