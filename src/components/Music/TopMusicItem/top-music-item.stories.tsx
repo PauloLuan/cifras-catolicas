@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/react'
 import React from 'react'
 import { TopMusicItem, TopMusicItemProps } from '.'
 
@@ -14,5 +15,9 @@ export const primary = () => {
     musicName: 'Porque ele vive'
   }
 
-  return <TopMusicItem {...props} />
+  return (
+    <Box maxW="300">
+      <TopMusicItem {...props} />
+    </Box>
+  )
 }

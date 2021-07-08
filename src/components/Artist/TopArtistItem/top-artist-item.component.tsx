@@ -1,12 +1,13 @@
 import {
-  Center,
+  Avatar,
+  AvatarBadge,
   Box,
+  Center,
   chakra,
   Flex,
+  Text,
   useColorModeValue,
-  VStack,
-  Avatar,
-  AvatarBadge
+  VStack
 } from '@chakra-ui/react'
 
 export interface TopArtistItemProps {
@@ -58,21 +59,24 @@ export const TopArtistItem = ({
         </Center>
       </Box>
       <Box w={2 / 3}>
-        <VStack p={4}>
-          <Center>
-            <chakra.h1 fontSize="xl" fontWeight="bold" color={'orange.500'}>
-              {artistName}
-            </chakra.h1>
-          </Center>
-          <Center>
-            <chakra.span
-              fontSize="sm"
-              fontWeight="light"
-              color={useColorModeValue('gray.600', 'gray.100')}
-            >
-              Visualizações: {new Intl.NumberFormat('pt-BR').format(views)}
-            </chakra.span>
-          </Center>
+        <VStack p={4} alignItems="flex-end">
+          <Text
+            as="h1"
+            fontSize="xl"
+            fontWeight="bold"
+            color={'orange.500'}
+            bg="white"
+          >
+            {artistName}
+          </Text>
+          <Text
+            as="span"
+            fontSize="xs"
+            fontWeight="light"
+            color={useColorModeValue('gray.600', 'gray.100')}
+          >
+            {new Intl.NumberFormat('pt-BR').format(views)} Views
+          </Text>
         </VStack>
       </Box>
     </Flex>

@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/react'
 import React from 'react'
 import { TopArtistItem, TopArtistItemProps } from '.'
 
@@ -15,5 +16,9 @@ export const primary = () => {
     views: 389456
   }
 
-  return <TopArtistItem {...props} />
+  return (
+    <Box maxW="300">
+      <TopArtistItem {...props} />
+    </Box>
+  )
 }

@@ -1,13 +1,24 @@
-import { Flex } from '@chakra-ui/react'
-
+import { ListItem, OrderedList, VStack } from '@chakra-ui/react'
+import { Artist } from '@types/Artist'
+import { TopArtistItem } from '../TopArtistItem'
 export interface TopArtistListProps {
-  name?: string
+  artists?: Artist[]
 }
 
-export const TopArtistList = ({ name }: TopArtistListProps) => {
+export const TopArtistList = ({ artists }: TopArtistListProps) => {
   return (
-    <Flex>
-      <h1 data-testid='top-artist-list'>top-artist-list</h1>
-    </Flex>
+    <OrderedList>
+      <VStack>
+        {artists?.map((artist, index) => (
+          <TopArtistItem
+            artistName={artist.nome}
+            image={artist.imagem}
+            index={index + 1}
+            views={32165487}
+            key={artist.slug + index}
+          />
+        ))}
+      </VStack>
+    </OrderedList>
   )
 }

@@ -1,8 +1,6 @@
+import { Box } from '@chakra-ui/react'
 import React from 'react'
-import {
-  TopArtistList,
-  TopArtistListProps
-} from '.'
+import { TopArtistList, TopArtistListProps } from '.'
 
 export default {
   component: TopArtistList,
@@ -12,8 +10,43 @@ export default {
 export const primary = () => {
   /* eslint-disable-next-line */
   const props: TopArtistListProps = {
-    name: 'Paulo Luan'
+    artists: [
+      {
+        nome: 'teste',
+        imagem: '',
+        slug: 'teste-123',
+        info: ''
+      },
+      {
+        nome: 'teste',
+        imagem: '',
+        slug: 'teste-123',
+        info: ''
+      },
+      {
+        nome: 'teste',
+        imagem: '',
+        slug: 'teste-123',
+        info: ''
+      },
+      {
+        nome: 'teste',
+        imagem: '',
+        slug: 'teste-123',
+        info: ''
+      },
+      {
+        nome: 'teste',
+        imagem: '',
+        slug: 'teste-123',
+        info: ''
+      }
+    ]
   }
 
-  return <TopArtistList {...props} />
+  return (
+    <Box maxW={300}>
+      <TopArtistList {...props} />
+    </Box>
+  )
 }
