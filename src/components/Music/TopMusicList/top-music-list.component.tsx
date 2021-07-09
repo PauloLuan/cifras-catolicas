@@ -1,13 +1,20 @@
-import { Flex } from '@chakra-ui/react'
-
+import { OrderedList, HStack } from '@chakra-ui/react'
+import { TopMusicItem, TopMusicItemProps } from '../TopMusicItem'
 export interface TopMusicListProps {
-  name?: string
+  musics?: TopMusicItemProps[]
 }
 
-export const TopMusicList = ({ name }: TopMusicListProps) => {
+export const TopMusicList = ({ musics }: TopMusicListProps) => {
   return (
-    <Flex>
-      <h1 data-testid='top-music-list'>top-music-list</h1>
-    </Flex>
+    <>
+      {musics?.map((music, index) => (
+        <TopMusicItem
+          artistName={music.artistName}
+          musicName={music.musicName}
+          index={index + 1}
+          key={music.musicName + index}
+        />
+      ))}
+    </>
   )
 }
