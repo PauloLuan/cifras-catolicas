@@ -1,4 +1,12 @@
-import { OrderedList, VStack } from '@chakra-ui/react'
+import {
+  OrderedList,
+  VStack,
+  Box,
+  Heading,
+  Wrap,
+  Center,
+  useColorModeValue
+} from '@chakra-ui/react'
 import { Artist } from '@types/Artist'
 import { TopArtistItem } from '../TopArtistItem'
 export interface TopArtistListProps {
@@ -7,16 +15,26 @@ export interface TopArtistListProps {
 
 export const TopArtistList = ({ artists }: TopArtistListProps) => {
   return (
-    <>
-      {artists?.map((artist, index) => (
-        <TopArtistItem
-          artistName={artist.nome}
-          image={artist.imagem}
-          index={index + 1}
-          views={32165487}
-          key={artist.slug + index}
-        />
-      ))}
-    </>
+    <Box flex="1">
+      <Heading
+        m={2}
+        fontSize="4xl"
+        fontWeight="bold"
+        color={useColorModeValue('gray.600', 'white')}
+      >
+        Top Artistas
+      </Heading>
+      <Wrap spacing={4}>
+        {artists?.map((artist, index) => (
+          <TopArtistItem
+            artistName={artist.nome}
+            image={artist.imagem}
+            index={index + 1}
+            views={32165487}
+            key={artist.slug + index}
+          />
+        ))}
+      </Wrap>
+    </Box>
   )
 }

@@ -25,7 +25,8 @@ export const TopArtistItem = ({
 }: TopArtistItemProps) => {
   return (
     <Flex
-      w="full"
+      w={270}
+      h={100}
       alignItems="center"
       justifyContent="center"
       shadow="lg"

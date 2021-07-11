@@ -4,7 +4,8 @@ import {
   chakra,
   Flex,
   useColorModeValue,
-  VStack
+  VStack,
+  WrapItem
 } from '@chakra-ui/react'
 
 export interface TopMusicItemProps {
@@ -19,8 +20,10 @@ export const TopMusicItem = ({
   artistName
 }: TopMusicItemProps) => {
   return (
-    <Flex
-      w="full"
+    <WrapItem
+      d="flex"
+      w={250}
+      h={100}
       alignItems="center"
       justifyContent="center"
       shadow="lg"
@@ -64,6 +67,6 @@ export const TopMusicItem = ({
           </Center>
         </VStack>
       </Box>
-    </Flex>
+    </WrapItem>
   )
 }
