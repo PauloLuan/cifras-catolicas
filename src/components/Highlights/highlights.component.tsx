@@ -1,5 +1,5 @@
 import { Box, Flex, HStack, Image, Stack, Text } from '@chakra-ui/react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export interface HighlightsProps {
   name?: string
@@ -69,6 +69,16 @@ export const Highlights = () => {
     transition: 'all .5s',
     ml: `-${currentSlide * 100}%`
   }
+
+  const SLIDES_INTERVAL_TIME = 3000
+  const ANIMATION_DIRECTION = 'right'
+
+  useEffect(() => {
+    const automatedSlide = setInterval(() => {
+      ANIMATION_DIRECTION.toLowerCase() === 'left' ? prevSlide() : nextSlide()
+    }, SLIDES_INTERVAL_TIME)
+    return () => clearInterval(automatedSlide)
+  }, [])
 
   return (
     <Flex
