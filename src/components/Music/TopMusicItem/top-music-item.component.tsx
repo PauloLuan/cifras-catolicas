@@ -1,8 +1,7 @@
 import {
-  Center,
   Box,
+  Center,
   chakra,
-  Flex,
   useColorModeValue,
   VStack,
   WrapItem

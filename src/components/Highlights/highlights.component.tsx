@@ -1,5 +1,5 @@
 import { Box, Flex, HStack, Image, Stack, Text } from '@chakra-ui/react'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export interface HighlightsProps {
   name?: string
@@ -62,7 +62,7 @@ export const Highlights = () => {
   const nextSlide = () => {
     setCurrentSlide((s) => (s === slidesCount - 1 ? 0 : s + 1))
   }
-  const setSlide = (slide) => {
+  const setSlide = (slide: number) => {
     setCurrentSlide(slide)
   }
   const carouselStyle = {
@@ -143,7 +143,7 @@ export const Highlights = () => {
             <Box
               key={`dots-${slide}`}
               cursor="pointer"
-              boxSize={['7px', , '15px']}
+              boxSize={['7px', null, '15px']}
               m="0 2px"
               bg={currentSlide === slide ? 'blackAlpha.800' : 'blackAlpha.500'}
               rounded="50%"

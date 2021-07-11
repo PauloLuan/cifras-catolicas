@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev -p 4444",
-    "build": "next build",
+    "build": "next build ",
     "start": "next start",
     "format": "eslint . --ext ts,js --fix",
     "test": "jest --maxWorkers=50%",
@@ -11,7 +11,8 @@
     "generate": "yarn plop --plopfile generator/plopfile.js",
     "storybook": "start-storybook -s ./public -p 9999",
     "build-storybook": "build-storybook -s ./public",
-    "upgrade": "npx sort-package-json && npx npm-check-updates -u"
+    "upgrade": "npx sort-package-json && npx npm-check-updates -u",
+    "format": "eslint --fix src --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.13",

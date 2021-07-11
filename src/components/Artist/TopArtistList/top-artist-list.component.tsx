@@ -1,12 +1,4 @@
-import {
-  OrderedList,
-  VStack,
-  Box,
-  Heading,
-  Wrap,
-  Center,
-  useColorModeValue
-} from '@chakra-ui/react'
+import { Box, Heading, useColorModeValue, Wrap } from '@chakra-ui/react'
 import { Artist } from '@types/Artist'
 import { TopArtistItem } from '../TopArtistItem'
 export interface TopArtistListProps {

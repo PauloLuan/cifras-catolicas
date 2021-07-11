@@ -1,13 +1,4 @@
-import {
-  chakra,
-  Box,
-  Heading,
-  OrderedList,
-  Stack,
-  HStack,
-  Wrap,
-  useColorModeValue
-} from '@chakra-ui/react'
+import { Box, Heading, useColorModeValue, Wrap } from '@chakra-ui/react'
 import { TopMusicItem, TopMusicItemProps } from '../TopMusicItem'
 export interface TopMusicListProps {
   musics?: TopMusicItemProps[]

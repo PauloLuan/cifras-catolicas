@@ -1,4 +1,4 @@
-import { Flex, Box, Grid, GridItem, SimpleGrid, chakra } from '@chakra-ui/react'
+import { Grid } from '@chakra-ui/react'
 import { TopArtistList } from '@components/Artist'
 import { TopMusicList } from '@components/Music'
 
@@ -103,7 +103,7 @@ const musicsProps = {
 
 const Ranking = ({ testId }: RankingProps) => {
   return (
-    <Grid w="full" templateColumns="4fr 1fr" gap={4}>
+    <Grid w="full" templateColumns="4fr 1fr" gap={4} data-testid={testId}>
       <TopMusicList {...musicsProps} />
       <TopArtistList {...artistsProps} />
     </Grid>
