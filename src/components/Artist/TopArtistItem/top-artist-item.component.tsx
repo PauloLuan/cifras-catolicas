@@ -31,7 +31,7 @@ export const TopArtistItem = ({
       justifyContent="center"
       shadow="lg"
       rounded="lg"
-      bg="orange.50"
+      bg={useColorModeValue('orange.50', 'orange.100')}
       role="group"
       colorScheme="orange"
       cursor="pointer"
@@ -61,20 +61,14 @@ export const TopArtistItem = ({
       </Box>
       <Box w={2 / 3}>
         <VStack p={4} alignItems="flex-end">
-          <Text
-            as="h1"
-            fontSize="xl"
-            fontWeight="bold"
-            color={'orange.500'}
-            bg="white"
-          >
+          <Text as="h1" fontSize="xl" fontWeight="bold" color={'orange.500'}>
             {artistName}
           </Text>
           <Text
             as="span"
             fontSize="xs"
             fontWeight="light"
-            color={useColorModeValue('gray.600', 'gray.100')}
+            color={useColorModeValue('gray.600', 'black')}
           >
             {new Intl.NumberFormat('pt-BR').format(views)} Views
           </Text>

@@ -1,5 +1,9 @@
-import { Layout } from 'components'
+import { Layout, Main } from 'components'
 
-const Index = () => <Layout>teste</Layout>
+const Index = () => (
+  <Layout>
+    <Main />
+  </Layout>
+)
 
 export default Index

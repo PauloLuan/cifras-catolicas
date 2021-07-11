@@ -61,6 +61,7 @@ export const TopMusicItem = ({
             <chakra.span
               fontSize="sm"
               color={useColorModeValue('gray.600', 'gray.400')}
+              _groupHover={{ color: 'black' }}
             >
               {artistName}
             </chakra.span>
