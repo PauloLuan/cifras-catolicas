@@ -33,9 +33,9 @@ const Newsletter = () => {
     </Flex>
   )
   return (
-    <Box w="full" px={4} py={32} mx="auto">
+    <Box w="full">
       <Box
-        w={{ base: 'full', md: 11 / 12, xl: 8 / 12 }}
+        w={{ base: 'full', md: 11 / 12 }}
         textAlign={{ base: 'left', md: 'center' }}
         mx="auto"
       >
