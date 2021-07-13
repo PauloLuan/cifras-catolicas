@@ -16,7 +16,7 @@ export const TopArtistList = ({ artists }: TopArtistListProps) => {
       >
         Top Artistas
       </Heading>
-      <Wrap spacing={4}>
+      <Wrap spacing={[2, 4]}>
         {artists?.map((artist, index) => (
           <TopArtistItem
             artistName={artist.nome}

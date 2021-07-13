@@ -21,7 +21,8 @@ export const TopMusicItem = ({
   return (
     <WrapItem
       d="flex"
-      w={250}
+      w={['45%', 250]}
+      p={1}
       h={100}
       alignItems="center"
       justifyContent="center"
@@ -32,11 +33,11 @@ export const TopMusicItem = ({
       colorScheme="orange"
       cursor="pointer"
     >
-      <Box w={1 / 3}>
+      <Box w={[1 / 5, 1 / 3]}>
         <Center>
           <chakra.h1
             data-testid="top-artist-item"
-            fontSize="5xl"
+            fontSize={['xl', '5xl']}
             fontWeight="bold"
             color={useColorModeValue('gray.400', 'white')}
             _groupHover={{ color: 'orange.500' }}
@@ -45,8 +46,8 @@ export const TopMusicItem = ({
           </chakra.h1>
         </Center>
       </Box>
-      <Box w={2 / 3}>
-        <VStack p={4}>
+      <Box w={[4 / 5, 2 / 3]}>
+        <VStack p={[1, 4]}>
           <Center>
             <chakra.strong
               fontSize="md"

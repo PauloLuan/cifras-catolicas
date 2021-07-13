@@ -103,7 +103,12 @@ const musicsProps = {
 
 const Ranking = ({ testId }: RankingProps) => {
   return (
-    <Grid w="full" templateColumns="4fr 1fr" gap={4} data-testid={testId}>
+    <Grid
+      w="full"
+      templateColumns={['1f', '4fr 1fr']}
+      gap={4}
+      data-testid={testId}
+    >
       <TopMusicList {...musicsProps} />
       <TopArtistList {...artistsProps} />
     </Grid>

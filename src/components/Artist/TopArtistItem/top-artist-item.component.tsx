@@ -25,7 +25,7 @@ export const TopArtistItem = ({
 }: TopArtistItemProps) => {
   return (
     <Flex
-      w={270}
+      w={['full', 250]}
       h={100}
       alignItems="center"
       justifyContent="center"
@@ -39,7 +39,7 @@ export const TopArtistItem = ({
       <Box w={1 / 3}>
         <Center>
           <Avatar
-            size="lg"
+            size={'lg'}
             name={artistName}
             src={image}
             borderColor="papayawhip"
@@ -60,7 +60,7 @@ export const TopArtistItem = ({
         </Center>
       </Box>
       <Box w={2 / 3}>
-        <VStack p={4} alignItems="flex-end">
+        <VStack p={[1, 4]} alignItems="flex-end">
           <Text as="h1" fontSize="xl" fontWeight="bold" color={'orange.500'}>
             {artistName}
           </Text>

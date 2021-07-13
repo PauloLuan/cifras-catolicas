@@ -9,7 +9,13 @@ export interface MainProps {
 
 const Main = ({ testId }: MainProps) => {
   return (
-    <VStack p={16} spacing={16} maxW="1080px" m="0 auto" data-testid={testId}>
+    <VStack
+      p={[0, 16]}
+      spacing={[4, 16]}
+      maxW="1080px"
+      m={[4, '0 auto']}
+      data-testid={testId}
+    >
       <Highlights />
       <Spacer />
       <Ranking />

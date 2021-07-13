@@ -6,16 +6,16 @@ export interface TopMusicListProps {
 
 export const TopMusicList = ({ musics }: TopMusicListProps) => {
   return (
-    <Box flex="1">
+    <Box w="full" flex="1">
       <Heading
-        ml={8}
+        ml={[1, 8]}
         fontSize="4xl"
         fontWeight="bold"
         color={useColorModeValue('gray.600', 'white')}
       >
         Top Músicas
       </Heading>
-      <Wrap spacing={4}>
+      <Wrap spacing={[2, 4]}>
         {musics?.map((music, index) => (
           <TopMusicItem
             artistName={music.artistName}

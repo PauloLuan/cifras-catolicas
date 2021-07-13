@@ -34,15 +34,11 @@ const Newsletter = () => {
   )
   return (
     <Box w="full">
-      <Box
-        w={{ base: 'full', md: 11 / 12 }}
-        textAlign={{ base: 'left', md: 'center' }}
-        mx="auto"
-      >
+      <Box w={{ base: 'full' }} textAlign={{ base: 'center' }} mx="auto">
         <chakra.h1
           mb={3}
-          fontSize={{ base: '4xl', md: '5xl' }}
-          fontWeight={{ base: 'bold', md: 'extrabold' }}
+          fontSize={{ base: '5xl' }}
+          fontWeight={{ base: 'extrabold' }}
           color={useColorModeValue('gray.600', 'gray.100')}
           lineHeight="shorter"
         >
