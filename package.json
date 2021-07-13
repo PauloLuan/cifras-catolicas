@@ -5,14 +5,13 @@
     "dev": "next dev -p 4444",
     "build": "next build ",
     "start": "next start",
-    "format": "eslint . --ext ts,js --fix",
+    "format": "eslint --fix src --ext .js,.jsx,.ts,.tsx",
     "test": "jest --maxWorkers=50%",
     "test:watch": "jest --watch --maxWorkers=25%",
     "generate": "yarn plop --plopfile generator/plopfile.js",
     "storybook": "start-storybook -s ./public -p 9999",
     "build-storybook": "build-storybook -s ./public",
-    "upgrade": "npx sort-package-json && npx npm-check-updates -u",
-    "format": "eslint --fix src --ext .js,.jsx,.ts,.tsx"
+    "upgrade": "npx sort-package-json && npx npm-check-updates -u"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.14",
@@ -26,6 +25,7 @@
     "axios": "^0.21.1",
     "framer-motion": "^4.1.17",
     "next": "^11.0.1",
+    "next-seo": "^4.26.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-html-parser": "^2.0.2",
