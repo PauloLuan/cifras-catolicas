@@ -26,8 +26,8 @@ const SocialButton = ({
     <chakra.button
       bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
       rounded={'full'}
-      w={8}
-      h={8}
+      w={12}
+      h={12}
       cursor={'pointer'}
       as={'a'}
       href={href}
@@ -47,7 +47,7 @@ const SocialButton = ({
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
   return (
-    <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
+    <Text fontWeight={'extrabold'} fontSize={'lg'} mb={2}>
       {children}
     </Text>
   )
@@ -56,7 +56,7 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
 export const Footer = () => {
   return (
     <Box>
-      <Container as={Stack} maxW={'6xl'} py={10}>
+      <Container as={Stack} maxW={'6xl'} p={10}>
         <SimpleGrid
           templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 1fr 1fr' }}
           spacing={8}
@@ -65,10 +65,15 @@ export const Footer = () => {
             <Box>
               <Logo />
             </Box>
-            <Text fontSize={'sm'}>
+            <Text fontSize={'md'}>
               © 2021 Cifras Católicas. Todos os direitos Reservados.
             </Text>
-            <Stack direction={'row'} spacing={6}>
+            <Stack
+              direction={'row'}
+              spacing={6}
+              align={'center'}
+              justify={'center'}
+            >
               <SocialButton label={'Twitter'} href={'#'}>
                 <FaTwitter />
               </SocialButton>

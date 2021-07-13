@@ -12,7 +12,7 @@ const Main = ({ testId }: MainProps) => {
     <VStack
       p={[0, 16]}
       spacing={[4, 16]}
-      maxW="1080px"
+      maxW={'6xl'}
       m={[4, '0 auto']}
       data-testid={testId}
     >
