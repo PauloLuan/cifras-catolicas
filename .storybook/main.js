@@ -17,7 +17,8 @@ module.exports = {
           ...config.resolve.alias,
           '@emotion/core': toPath('node_modules/@emotion/react'),
           'emotion-theming': toPath('node_modules/@emotion/react'),
-          '@components': toPath('src/components')
+          '@components': toPath('src/components'),
+          '@configs': toPath('src/configs')
         }
       }
     }

@@ -8,26 +8,29 @@ import {
   Text
 } from '@chakra-ui/react'
 import { default as ReactChord } from '@tombatossals/react-chords/lib/Chord'
+import { findChord } from './chord.service'
+import { isEmpty } from 'lodash'
 
 export interface ChordProps {
   value: string
 }
 
-const MyChord = () => {
-  const chord = {
-    frets: [1, 3, 3, 2, 1, 1],
-    fingers: [1, 3, 4, 2, 1, 1],
-    barres: [1],
-    capo: false
-  }
+const NOT_FOUND = <>Cifra não encontrada 😞</>
+
+const MyChord = ({ value }: ChordProps) => {
+  if (isEmpty(value)) return NOT_FOUND
+
+  let chord = findChord(value)
+  if (!chord || chord === 'NOT FOUND') return NOT_FOUND
+  chord = chord.positions[0] // FIXME: avaliar o que é este positions aqui...
+
   const instrument = {
     strings: 6,
     fretsOnChord: 4,
-    name: 'Guitar',
-    keys: [],
-    tunings: {
-      standard: ['E', 'A', 'D', 'G', 'B', 'E']
-    }
+    name: 'guitar',
+    numberOfChords: 2141,
+    tunings: { standard: ['E2', 'A2', 'D3', 'G3', 'B3', 'E4'] },
+    keys: ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']
   }
   const lite = false // defaults to false if omitted
   return <ReactChord chord={chord} instrument={instrument} lite={lite} />
@@ -47,7 +50,7 @@ export const Chord = ({ value }: ChordProps) => {
         </PopoverHeader>
         <PopoverBody>
           <Center>
-            <MyChord />
+            <MyChord value={value} />
           </Center>
         </PopoverBody>
       </PopoverContent>
