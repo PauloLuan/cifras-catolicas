@@ -4,12 +4,12 @@ import { ChakraProvider } from '@chakra-ui/react'
 
 import theme from 'styles/theme'
 
-function App ({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider resetCSS theme={theme}>
       <Head>
-        <title>Welcome!</title>
-        <meta name='description' content='Aoeee' />
+        <title>Cifras Católicas</title>
+        <meta name="description" content="Aoeee" />
       </Head>
 
       <Component {...pageProps} />
