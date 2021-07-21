@@ -1,4 +1,5 @@
-import { Text } from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react'
+import { ArtistDetails } from '@components/Artist/ArtistDetails'
 import { Layout } from '@components/Layout'
 import { GetStaticProps, GetStaticPaths, InferGetStaticPropsType } from 'next'
 import { useRouter } from 'next/router'
@@ -29,7 +30,7 @@ function ArtistPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
 
   return (
     <Layout>
-      <Text>Artista Slug: {slug}</Text>
+      <ArtistDetails />
     </Layout>
   )
 }

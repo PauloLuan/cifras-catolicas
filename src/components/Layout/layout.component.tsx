@@ -1,17 +1,29 @@
-import { Box } from '@chakra-ui/react'
+import { Box, VStack } from '@chakra-ui/react'
 import { ReactNode } from 'react'
 import { Footer } from '@components/Footer'
 import { Navbar } from '@components/Navbar'
 
 export interface LayoutProps {
+  testId?: string
   children?: ReactNode
 }
 
-export const Layout = ({ children }: LayoutProps) => {
+export const Layout = ({
+  testId = 'main-component',
+  children
+}: LayoutProps) => {
   return (
     <Box w="full" h="full">
       <Navbar />
-      {children}
+      <VStack
+        p={[0, 16]}
+        spacing={[4, 16]}
+        maxW={'6xl'}
+        m={[4, '0 auto']}
+        data-testid={testId}
+      >
+        {children}
+      </VStack>
       <Footer />
     </Box>
   )
