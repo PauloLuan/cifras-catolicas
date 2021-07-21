@@ -204,7 +204,7 @@ export const ArtistList = ({ artists = teste }: ArtistListProps) => {
               {letter}
             </Heading>
 
-            <SimpleGrid columns={3} p={4} spacing={4}>
+            <SimpleGrid columns={[1, 2, 3]} p={4} spacing={4}>
               {artists?.map((artist, index) => (
                 <ArtistItem {...artist} key={artist.slug + index} />
               ))}
