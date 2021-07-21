@@ -1,10 +1,4 @@
-import {
-  Box,
-  HStack,
-  Heading,
-  SimpleGrid,
-  useColorModeValue
-} from '@chakra-ui/react'
+import { Box, Heading, SimpleGrid, useColorModeValue } from '@chakra-ui/react'
 import { Artist } from '@types/Artist'
 import { chain, head } from 'lodash'
 import { ArtistItem } from '../ArtistItem'
