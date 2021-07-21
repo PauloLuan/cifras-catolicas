@@ -1,7 +1,7 @@
-import { VStack, Spacer } from '@chakra-ui/react'
+import { Spacer, VStack } from '@chakra-ui/react'
+import { ArtistList } from '@components/Artist'
 import { Highlights } from '@components/Highlights'
 import { Newsletter } from '@components/Newsletter'
-import { Ranking } from '@components/Ranking'
 
 export interface MainProps {
   testId?: string
@@ -18,7 +18,7 @@ const Main = ({ testId }: MainProps) => {
     >
       <Highlights />
       <Spacer />
-      <Ranking />
+      <ArtistList />
       <Spacer />
       <Newsletter />
     </VStack>

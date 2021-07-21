@@ -1,14 +1,14 @@
 export interface Artist {
   slug: string
   nome: string
-  info: string
-  imagem?: string
+  info?: string | null
+  imagem?: string | null
   musicas?: Music[]
 }
 export interface Music {
   slug: string
   nome: string
   cifra: string
-  info: string
-  video: string
+  info?: string
+  video?: string
 }
