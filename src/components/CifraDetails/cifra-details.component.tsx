@@ -9,9 +9,12 @@ import {
   Icon,
   Link,
   Stack,
+  StackDivider,
   Text,
-  useColorModeValue
+  useColorModeValue,
+  VStack
 } from '@chakra-ui/react'
+import { Cifra } from '@components/Music'
 import React, { ReactText } from 'react'
 import { IconType } from 'react-icons'
 import {
@@ -47,14 +50,75 @@ export const CifraDetails = ({ slug, name }: CifraDetailsProps) => {
         <SocialProfileWithImage />
       </Box>
 
-      <Box
-        as="section"
-        bg={useColorModeValue('orange.500', 'gray.700')}
-        w="full"
-      >
-        <h1 data-testid="cifra-details">cifra-details: {slug}</h1>
-      </Box>
+      <MainContent />
     </Flex>
+  )
+}
+
+const cifraSample = `
+<b>INTRODUÇÃO:</b> <b>E</b>  <b>A</b>  <b>Am/E</b>  <b>E</b>  <b>C#m</b>  <b>F#m</b>  <b>A</b>  <b>B</b>
+
+<b>E</b>           <b>A</b>
+AVE CHEIA DE GRAÇA,
+<b>Am/E</b>  <b>E</b>
+BENDITA SEJAS MÃE,
+<b>E</b>             <b>A</b>
+TE AMO COM AMOR ETERNO,
+<b>Am/E</b>    <b>E</b>
+SINGELO DE CORAÇÃO,
+<b>E</b>               <b>A</b>
+QUERO ENTÃO COLOCAR
+    <b>Am/E</b>    <b>E</b>
+MINHA VIDA EM TUAS MÃOS,
+<b>E</b>               <b>A</b>
+SENTIR QUE PODES NINAR-ME
+<b>Am/E</b>
+MÃEZINHA
+        <b>E</b>
+COM TUA PROTEÇÃO.
+
+        <b>C#m7</b>
+EU QUERO DEIXAR
+                <b>A</b>
+QUE O TEU PLANO EM MIM
+        <b>F#m</b>
+POSSA REALIZAR
+        <b>B</b>
+SEM LIMITAÇÕES,
+        <b>C#m</b>
+E QUERO TENTAR
+            <b>A</b>
+SEM POREM SABER,
+        <b>F#m</b>
+SER UM POUQUINHO
+        <b>D</b>  <b>B</b>
+DO QUE TU ÉS (BIS)
+
+<b>E</b>            <b>A</b>       <b>Am</b>       <b>E</b>
+AVE CHEIA DE GRAÇA   UH UH UH UH...
+`
+
+export const MainContent = () => {
+  return (
+    <Box
+      as="main"
+      bg={useColorModeValue('gray.50', 'gray.800')}
+      boxShadow={'2xl'}
+      rounded={'md'}
+      w="full"
+      p={[1, 8]}
+      ml={[1, 4]}
+    >
+      <VStack
+        divider={<StackDivider borderColor="gray.200" />}
+        spacing={4}
+        align="stretch"
+      >
+        <Heading>Oração Pela Família</Heading>
+        <Text fontWeight={600}>Padre Zezinho</Text>
+        <Cifra cifra={cifraSample} />
+      </VStack>
+    </Box>
   )
 }
 
