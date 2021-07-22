@@ -45,15 +45,18 @@ const LinkItems: Array<LinkItemProps> = [
 
 export const CifraDetails = ({ slug, name }: CifraDetailsProps) => {
   return (
-    <Flex w="full">
-      <Box as="section" w="40">
-        <SocialProfileWithImage />
-      </Box>
-
+    <Flex w="full" direction={['column', 'row']}>
+      <Sidebar />
       <MainContent />
     </Flex>
   )
 }
+
+const Sidebar = () => (
+  <Box as="section" w={['full', '40']}>
+    <SocialProfileWithImage />
+  </Box>
+)
 
 const cifraSample = `
 <b>INTRODUÇÃO:</b> <b>E</b>  <b>A</b>  <b>Am/E</b>  <b>E</b>  <b>C#m</b>  <b>F#m</b>  <b>A</b>  <b>B</b>
@@ -133,21 +136,21 @@ const SocialProfileWithImage = () => {
         overflow={'hidden'}
         mt={2}
       >
-        <Flex justify={'center'}>
-          <Avatar
-            size={'xl'}
-            src={
-              'https://studiosol-a.akamaihd.net/letras/150x150/fotos/d/1/6/8/d168a1a73553388884188d4da41c3417.jpg'
-            }
-            alt={'Author'}
-            css={{
-              border: '2px solid white'
-            }}
-          />
-        </Flex>
-
         <Box p={2}>
-          <Stack spacing={0} align={'center'} mb={5}>
+          <Flex justify={'center'}>
+            <Avatar
+              size={'xl'}
+              src={
+                'https://studiosol-a.akamaihd.net/letras/150x150/fotos/d/1/6/8/d168a1a73553388884188d4da41c3417.jpg'
+              }
+              alt={'Author'}
+              css={{
+                border: '2px solid white'
+              }}
+            />
+          </Flex>
+
+          <Stack spacing={0} align={'center'} my={4}>
             <Heading fontSize={'xl'} fontWeight={500} fontFamily={'body'}>
               Padre Zezinho
             </Heading>
@@ -167,7 +170,9 @@ const SocialProfileWithImage = () => {
               </Text>
             </Stack>
           </Stack>
+        </Box>
 
+        <Box p={4}>
           <Button
             w={'full'}
             mt={8}
@@ -208,32 +213,31 @@ interface NavItemProps extends FlexProps {
 }
 const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
   return (
-    <Link href="#" style={{ textDecoration: 'none' }}>
-      <Flex
-        align="center"
-        p="4"
-        borderRadius="lg"
-        role="group"
-        fontSize="sm"
-        cursor="pointer"
-        _hover={{
-          bg: 'orange.400',
-          color: 'white'
-        }}
-        {...rest}
-      >
-        {icon && (
-          <Icon
-            mr="4"
-            fontSize="16"
-            _groupHover={{
-              color: 'white'
-            }}
-            as={icon}
-          />
-        )}
-        {children}
-      </Flex>
-    </Link>
+    <Flex
+      align="center"
+      justify={['center', 'flex-start']}
+      p="4"
+      borderRadius="lg"
+      role="group"
+      fontSize="sm"
+      cursor="pointer"
+      _hover={{
+        bg: 'orange.400',
+        color: 'white'
+      }}
+      {...rest}
+    >
+      {icon && (
+        <Icon
+          mr="4"
+          fontSize="16"
+          _groupHover={{
+            color: 'white'
+          }}
+          as={icon}
+        />
+      )}
+      {children}
+    </Flex>
   )
 }
