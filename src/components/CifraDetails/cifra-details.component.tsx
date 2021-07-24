@@ -7,7 +7,6 @@ import {
   FlexProps,
   Heading,
   Icon,
-  Link,
   Stack,
   StackDivider,
   Text,
@@ -15,7 +14,7 @@ import {
   VStack
 } from '@chakra-ui/react'
 import { Cifra } from '@components/Music'
-import { Artist } from '@types/Artist'
+import { Artist, Music } from '@types/Artist'
 import React, { ReactText } from 'react'
 import { IconType } from 'react-icons'
 import {
@@ -29,6 +28,8 @@ import {
 
 export interface CifraDetailsProps {
   artist: Artist
+  selectedSlug?: string
+  music?: Music
 }
 
 interface LinkItemProps {
@@ -44,11 +45,12 @@ const LinkItems: Array<LinkItemProps> = [
   { name: 'Settings', icon: FiSettings }
 ]
 
-export const CifraDetails = ({ artist }: CifraDetailsProps) => {
+export const CifraDetails = ({ artist, selectedSlug }: CifraDetailsProps) => {
+  const music = artist.musicas?.find((music) => music.slug === selectedSlug)
   return (
     <Flex w="full" direction={['column', 'row']}>
       <Sidebar artist={artist} />
-      <MainContent artist={artist} />
+      <MainContent artist={artist} selectedSlug={selectedSlug} music={music} />
     </Flex>
   )
 }
@@ -59,8 +61,34 @@ const Sidebar = ({ artist }: CifraDetailsProps) => (
   </Box>
 )
 
-export const MainContent = ({ artist }: CifraDetailsProps) => {
-  const music = artist?.musicas[0] // FIXME: ajustar para pesquisar no array baseado no slug...
+export const MainContent = ({
+  artist,
+  selectedSlug,
+  music
+}: CifraDetailsProps) => {
+  if (!music) {
+    return (
+      <Box
+        as="main"
+        bg={useColorModeValue('gray.50', 'gray.800')}
+        boxShadow={'2xl'}
+        rounded={'md'}
+        w="full"
+        p={[1, 8]}
+        ml={[1, 4]}
+      >
+        <VStack
+          divider={<StackDivider borderColor="gray.200" />}
+          spacing={4}
+          align="stretch"
+        >
+          <Heading>{artist.nome}</Heading>
+          <Text>Opssss a música {selectedSlug} não foi encontrada... 😞</Text>
+        </VStack>
+      </Box>
+    )
+  }
+
   return (
     <Box
       as="main"

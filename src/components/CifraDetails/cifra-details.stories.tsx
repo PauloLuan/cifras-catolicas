@@ -51,7 +51,8 @@ const artist2 = {
 export const primary = () => {
   /* eslint-disable-next-line */
   const props: CifraDetailsProps = {
-    artist: artist1
+    artist: artist1,
+    selectedSlug: artist1.musicas[1].slug
   }
 
   return <CifraDetails {...props} />
@@ -60,7 +61,18 @@ export const primary = () => {
 export const secondary = () => {
   /* eslint-disable-next-line */
   const props: CifraDetailsProps = {
-    artist: artist2
+    artist: artist2,
+    selectedSlug: artist2.musicas[0].slug
+  }
+
+  return <CifraDetails {...props} />
+}
+
+export const notFound = () => {
+  /* eslint-disable-next-line */
+  const props: CifraDetailsProps = {
+    artist: artist2,
+    selectedSlug: 'musica-nao-encontrada-exemplo'
   }
 
   return <CifraDetails {...props} />
