@@ -15,6 +15,7 @@ import {
   VStack
 } from '@chakra-ui/react'
 import { Cifra } from '@components/Music'
+import { Artist } from '@types/Artist'
 import React, { ReactText } from 'react'
 import { IconType } from 'react-icons'
 import {
@@ -27,14 +28,14 @@ import {
 } from 'react-icons/fi'
 
 export interface CifraDetailsProps {
-  name?: string
-  slug: string
+  artist: Artist
 }
 
 interface LinkItemProps {
   name: string
   icon: IconType
 }
+
 const LinkItems: Array<LinkItemProps> = [
   { name: 'Home', icon: FiHome },
   { name: 'Trending', icon: FiTrendingUp },
@@ -43,65 +44,23 @@ const LinkItems: Array<LinkItemProps> = [
   { name: 'Settings', icon: FiSettings }
 ]
 
-export const CifraDetails = ({ slug, name }: CifraDetailsProps) => {
+export const CifraDetails = ({ artist }: CifraDetailsProps) => {
   return (
     <Flex w="full" direction={['column', 'row']}>
-      <Sidebar />
-      <MainContent />
+      <Sidebar artist={artist} />
+      <MainContent artist={artist} />
     </Flex>
   )
 }
 
-const Sidebar = () => (
+const Sidebar = ({ artist }: CifraDetailsProps) => (
   <Box as="section" w={['full', '40']}>
-    <SocialProfileWithImage />
+    <SocialProfileWithImage artist={artist} />
   </Box>
 )
 
-const cifraSample = `
-<b>INTRODUÇÃO:</b> <b>E</b>  <b>A</b>  <b>Am/E</b>  <b>E</b>  <b>C#m</b>  <b>F#m</b>  <b>A</b>  <b>B</b>
-
-<b>E</b>           <b>A</b>
-AVE CHEIA DE GRAÇA,
-<b>Am/E</b>  <b>E</b>
-BENDITA SEJAS MÃE,
-<b>E</b>             <b>A</b>
-TE AMO COM AMOR ETERNO,
-<b>Am/E</b>    <b>E</b>
-SINGELO DE CORAÇÃO,
-<b>E</b>               <b>A</b>
-QUERO ENTÃO COLOCAR
-    <b>Am/E</b>    <b>E</b>
-MINHA VIDA EM TUAS MÃOS,
-<b>E</b>               <b>A</b>
-SENTIR QUE PODES NINAR-ME
-<b>Am/E</b>
-MÃEZINHA
-        <b>E</b>
-COM TUA PROTEÇÃO.
-
-        <b>C#m7</b>
-EU QUERO DEIXAR
-                <b>A</b>
-QUE O TEU PLANO EM MIM
-        <b>F#m</b>
-POSSA REALIZAR
-        <b>B</b>
-SEM LIMITAÇÕES,
-        <b>C#m</b>
-E QUERO TENTAR
-            <b>A</b>
-SEM POREM SABER,
-        <b>F#m</b>
-SER UM POUQUINHO
-        <b>D</b>  <b>B</b>
-DO QUE TU ÉS (BIS)
-
-<b>E</b>            <b>A</b>       <b>Am</b>       <b>E</b>
-AVE CHEIA DE GRAÇA   UH UH UH UH...
-`
-
-export const MainContent = () => {
+export const MainContent = ({ artist }: CifraDetailsProps) => {
+  const music = artist?.musicas[0] // FIXME: ajustar para pesquisar no array baseado no slug...
   return (
     <Box
       as="main"
@@ -117,15 +76,15 @@ export const MainContent = () => {
         spacing={4}
         align="stretch"
       >
-        <Heading>Oração Pela Família</Heading>
-        <Text fontWeight={600}>Padre Zezinho</Text>
-        <Cifra cifra={cifraSample} />
+        <Heading>{music.nome}</Heading>
+        <Text fontWeight={600}>{artist.nome}</Text>
+        <Cifra cifra={music.cifra} />
       </VStack>
     </Box>
   )
 }
 
-const SocialProfileWithImage = () => {
+const SocialProfileWithImage = ({ artist }: CifraDetailsProps) => {
   return (
     <Center>
       <Box
@@ -140,9 +99,7 @@ const SocialProfileWithImage = () => {
           <Flex justify={'center'}>
             <Avatar
               size={'xl'}
-              src={
-                'https://studiosol-a.akamaihd.net/letras/150x150/fotos/d/1/6/8/d168a1a73553388884188d4da41c3417.jpg'
-              }
+              src={artist.imagem}
               alt={'Author'}
               css={{
                 border: '2px solid white'
@@ -152,7 +109,7 @@ const SocialProfileWithImage = () => {
 
           <Stack spacing={0} align={'center'} my={4}>
             <Heading fontSize={'xl'} fontWeight={500} fontFamily={'body'}>
-              Padre Zezinho
+              {artist.nome}
             </Heading>
           </Stack>
 
