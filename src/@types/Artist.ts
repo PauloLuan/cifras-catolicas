@@ -1,3 +1,10 @@
+export interface ArtistListItem {
+  slug: string
+  nome: string
+  info?: string | null
+  imagem?: string | null
+}
+
 export interface Artist {
   slug: string
   nome: string
