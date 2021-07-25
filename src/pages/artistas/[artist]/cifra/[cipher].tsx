@@ -68,7 +68,7 @@ export const getStaticPaths: GetStaticPaths<{
   }
 
   return {
-    paths: [],
+    paths,
     fallback: 'blocking'
   }
 }
