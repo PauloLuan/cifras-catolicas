@@ -27,13 +27,28 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
-export const getStaticPaths: GetStaticPaths<{ cifra: string }> = async () => {
+export const getStaticPaths: GetStaticPaths<{
+  artist: string
+  cipher: string
+}> = async () => {
   // const baseResponse = await axios.get<ArtistListItem[]>(BASE_ENDPOINT)
   // const artists = baseResponse.data
+  // const paths = []
 
-  // const paths = artists.map((artist) => {
-  //   return { params: { cifra: artist.slug } }
-  // })
+  // for await (const artistItem of artists) {
+  //   const ENDPOINT = `https://api.musicasparamissa.com.br/cifrascatolicas/artistas/${artistItem.slug}`
+
+  //   try {
+  //     const artistResponse = await axios.get<Artist>(ENDPOINT)
+  //     const { musicas } = artistResponse?.data
+  //     musicas?.map((music) => {
+  //       const path = { params: { cipher: music.slug, artist: artistItem.slug } }
+  //       paths.push(path)
+  //     })
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+  // }
 
   return {
     paths: [],
