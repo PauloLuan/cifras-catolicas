@@ -8,25 +8,25 @@ import {
   OrderedList,
   Text
 } from '@chakra-ui/react'
-import { Artist, Music } from '@types/Artist'
+import { Artist } from '@types/Artist'
 import NextLink from 'next/link'
 import { BsMusicNoteList } from 'react-icons/bs'
 import { RiMusicLine } from 'react-icons/ri'
 
 export interface DetailsProps {
-  artist?: Artist
+  artist: Artist
 }
 
-const renderMusicList = (musics: Music[]): React.ReactNode => {
-  return musics.map((music) => {
+const renderMusicList = ({ artist }: DetailsProps): React.ReactNode => {
+  return artist.musicas.map((music) => {
     return (
       <>
         <ListItem key={music.slug}>
           <NextLink
-            as={`/cifra/${music.slug}`}
-            href={`/cifra/[slug]`}
+            as={`/artistas/${artist.slug}/cifra/${music.slug}`}
+            href={`/artistas/${artist.slug}/cifra/[slug]`}
             passHref
-            key={`/cifra/${music.slug}`}
+            key={`/artistas/${artist.slug}/cifra/${music.slug}`}
           >
             <Text as="a">
               <ListIcon as={RiMusicLine} color="orange.500" />
@@ -49,7 +49,7 @@ export const ArtistDetails = ({ artist }: DetailsProps) => {
       <Divider m={4} />
       <Text>Músicas:</Text>
       <Divider m={2} />
-      <OrderedList spacing={6}>{renderMusicList(artist.musicas)}</OrderedList>
+      <OrderedList spacing={6}>{renderMusicList({ artist })}</OrderedList>
     </Box>
   )
 }

@@ -9,7 +9,7 @@ const IS_PRODUCTION = process.env.NODE_ENV === 'production'
 const REVALIDATE_TIME = IS_PRODUCTION ? 60 * 60 : 60 * 5
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const slug = context?.params?.slug
+  const slug = context?.params?.artist
   const ENDPOINT = `https://api.musicasparamissa.com.br/cifrascatolicas/artistas/${slug}`
 
   const artistResponse = await axios.get<Artist>(ENDPOINT)
@@ -18,17 +18,17 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       artist
-    },
-    revalidate: REVALIDATE_TIME
+    }
+    // revalidate: REVALIDATE_TIME
   }
 }
 
-export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
+export const getStaticPaths: GetStaticPaths<{ artist: string }> = async () => {
   const baseResponse = await axios.get<ArtistListItem[]>(BASE_ENDPOINT)
   const artists = baseResponse.data
 
   const paths = artists.map((artist) => {
-    return { params: { slug: artist.slug } }
+    return { params: { artist: artist.slug } }
   })
 
   return {
