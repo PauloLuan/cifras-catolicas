@@ -30,25 +30,25 @@ export const Highlights = () => {
       img: 'https://studiosol-a.akamaihd.net/uploadfile/letras/playlists/9/4/c/0/94c08136bc584b28b817de8216c5d6ee.jpg',
       label: 'Seleção Católicas',
       description: 'As melhores músicas',
-      link: 'slug-link-example'
+      link: '#'
     },
     {
       img: 'https://studiosol-a.akamaihd.net/uploadfile/letras/playlists/f/d/3/d/fd3d374df85246e69ea6700aef40e674.jpg',
       label: 'Músicas para missa',
       description: 'As melhores.',
-      link: 'slug-link-example'
+      link: '#'
     },
     {
       img: 'https://studiosol-a.akamaihd.net/uploadfile/letras/playlists/6/e/0/7/6e07d5609a744c04aa375f17bfbc4470.jpg',
       label: 'As melhores músicas',
       description: 'da Harpa Cristã',
-      link: 'slug-link-example'
+      link: '#'
     },
     {
       img: 'https://studiosol-a.akamaihd.net/uploadfile/letras/playlists/9/c/a/5/9ca5e25ff0a74e3fac111dd27c294f17.jpg',
       label: 'As melhores',
       description: 'músicas católicas da década',
-      link: 'slug-link-example'
+      link: '#'
     }
   ]
 
