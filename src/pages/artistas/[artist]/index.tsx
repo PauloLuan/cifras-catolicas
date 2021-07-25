@@ -8,12 +8,26 @@ const BASE_ENDPOINT = `https://api.musicasparamissa.com.br/cifrascatolicas/artis
 const IS_PRODUCTION = process.env.NODE_ENV === 'production'
 const REVALIDATE_TIME = IS_PRODUCTION ? 60 * 60 : 60 * 5
 
+function wait(ml) {
+  return new Promise((resolve) => setTimeout(resolve, ml))
+}
+
 export const getStaticProps: GetStaticProps = async (context) => {
   const slug = context?.params?.artist
   const ENDPOINT = `https://api.musicasparamissa.com.br/cifrascatolicas/artistas/${slug}`
+  let artist
 
-  const artistResponse = await axios.get<Artist>(ENDPOINT)
-  const artist = artistResponse.data
+  try {
+    const artistResponse = await axios.get<Artist>(ENDPOINT)
+    artist = artistResponse.data
+  } catch (e) {
+    wait(500)
+
+    console.log(`Error on Endpoint: ${ENDPOINT}`)
+    console.log(e.message)
+  }
+
+  if (!artist) return { notFound: true }
 
   return {
     props: {
@@ -33,7 +47,7 @@ export const getStaticPaths: GetStaticPaths<{ artist: string }> = async () => {
 
   return {
     paths,
-    fallback: true
+    fallback: 'blocking'
   }
 }
 

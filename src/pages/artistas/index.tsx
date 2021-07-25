@@ -22,19 +22,19 @@ export const getStaticProps = async () => {
   }
 }
 
-export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
-  const response = await axios.get<ArtistListItem[]>(ENDPOINT)
-  const artists = response.data
+// export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
+//   const response = await axios.get<ArtistListItem[]>(ENDPOINT)
+//   const artists = response.data
 
-  const paths = artists.map((artist) => {
-    return { params: { slug: artist.slug } }
-  })
+//   const paths = artists.map((artist) => {
+//     return { params: { slug: artist.slug } }
+//   })
 
-  return {
-    paths,
-    fallback: true
-  }
-}
+//   return {
+//     paths,
+//     fallback: true
+//   }
+// }
 
 const ListArtists: NextPage<{ artists: ArtistListItem[] }> = ({
   artists

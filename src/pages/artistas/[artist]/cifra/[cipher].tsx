@@ -9,13 +9,27 @@ const BASE_ENDPOINT = `https://api.musicasparamissa.com.br/cifrascatolicas/artis
 const IS_PRODUCTION = process.env.NODE_ENV === 'production'
 const REVALIDATE_TIME = IS_PRODUCTION ? 60 * 60 : 60 * 5
 
+function wait(ml) {
+  return new Promise((resolve) => setTimeout(resolve, ml))
+}
+
 export const getStaticProps: GetStaticProps = async (context) => {
   const artistSlug = context?.params?.artist
   const selectedCipherSlug = context?.params?.cipher
   const ENDPOINT = `https://api.musicasparamissa.com.br/cifrascatolicas/artistas/${artistSlug}`
+  let artist
 
-  const artistResponse = await axios.get<Artist>(ENDPOINT)
-  const artist = artistResponse.data
+  try {
+    const artistResponse = await axios.get<Artist>(ENDPOINT)
+    artist = artistResponse.data
+  } catch (e) {
+    wait(500)
+
+    console.log(`Error on Endpoint: ${ENDPOINT}`)
+    console.log(e.message)
+  }
+
+  if (!artist) return { notFound: true }
 
   return {
     props: {
@@ -31,24 +45,27 @@ export const getStaticPaths: GetStaticPaths<{
   artist: string
   cipher: string
 }> = async () => {
-  // const baseResponse = await axios.get<ArtistListItem[]>(BASE_ENDPOINT)
-  // const artists = baseResponse.data
-  // const paths = []
+  const baseResponse = await axios.get<ArtistListItem[]>(BASE_ENDPOINT)
+  const artists = baseResponse.data
+  const paths = []
 
-  // for await (const artistItem of artists) {
-  //   const ENDPOINT = `https://api.musicasparamissa.com.br/cifrascatolicas/artistas/${artistItem.slug}`
+  for await (const artistItem of artists) {
+    const ENDPOINT = `https://api.musicasparamissa.com.br/cifrascatolicas/artistas/${artistItem.slug}`
 
-  //   try {
-  //     const artistResponse = await axios.get<Artist>(ENDPOINT)
-  //     const { musicas } = artistResponse?.data
-  //     musicas?.map((music) => {
-  //       const path = { params: { cipher: music.slug, artist: artistItem.slug } }
-  //       paths.push(path)
-  //     })
-  //   } catch (e) {
-  //     console.log(e)
-  //   }
-  // }
+    try {
+      const artistResponse = await axios.get<Artist>(ENDPOINT)
+      const { musicas } = artistResponse?.data
+      musicas?.map((music) => {
+        const path = { params: { cipher: music.slug, artist: artistItem.slug } }
+        paths.push(path)
+      })
+    } catch (e) {
+      wait(500)
+
+      console.log(`Error on Endpoint: ${ENDPOINT}`)
+      console.log(e.message)
+    }
+  }
 
   return {
     paths: [],
