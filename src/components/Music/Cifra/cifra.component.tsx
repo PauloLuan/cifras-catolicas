@@ -20,7 +20,13 @@ export const Cifra = ({ cifra }: CifraProps) => {
   return (
     <Container>
       <pre>
-        <Text fontFamily="monospace" fontSize="14" letterSpacing="wider">
+        <Text
+          whiteSpace="pre-wrap"
+          wordBreak="break-word"
+          fontFamily="monospace"
+          fontSize="14"
+          letterSpacing="wider"
+        >
           {ReactHtmlParser(cifra, { transform })}
         </Text>
       </pre>
