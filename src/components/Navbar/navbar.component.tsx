@@ -16,6 +16,7 @@ import {
   useDisclosure,
   VStack
 } from '@chakra-ui/react'
+import { Search } from '@components/Search'
 import { useViewportScroll } from 'framer-motion'
 import React from 'react'
 import {
@@ -51,10 +52,8 @@ const Navbar = () => {
       display={{ base: 'none', md: 'flex' }}
       alignItems="center"
       as="a"
-      aria-label="Cifras Católicas encontr as melhores cifras"
+      aria-label="Cifras Católicas encontre as melhores cifras"
       href={''}
-      target="_blank"
-      rel="noopener noreferrer"
       bg="gray.50"
       borderWidth="1px"
       borderColor="gray.200"
@@ -98,26 +97,14 @@ const Navbar = () => {
       spacing={3}
       rounded="sm"
       shadow="sm"
+      zIndex={1}
     >
       <CloseButton
         aria-label="Close menu"
         justifySelf="self-start"
         onClick={mobileNav.onClose}
       />
-      <Button w="full" variant="ghost" leftIcon={<AiFillHome />}>
-        Dashboard
-      </Button>
-      <Button
-        w="full"
-        variant="solid"
-        colorScheme="brand"
-        leftIcon={<AiOutlineInbox />}
-      >
-        Inbox
-      </Button>
-      <Button w="full" variant="ghost" leftIcon={<BsFillCameraVideoFill />}>
-        Videos
-      </Button>
+      <Search />
     </VStack>
   )
   return (
@@ -138,14 +125,9 @@ const Navbar = () => {
                   <Logo />
                 </HStack>
               </Link>
-              <InputGroup
-                m="20px"
-                w="96"
-                display={{ base: 'none', md: 'flex' }}
-              >
-                <InputLeftElement color="gray.500" children={<FiSearch />} />
-                <Input placeholder="O que você quer tocar hoje?" />
-              </InputGroup>
+              <Box display={{ base: 'none', md: 'flex' }}>
+                <Search />
+              </Box>
             </Flex>
 
             <Flex

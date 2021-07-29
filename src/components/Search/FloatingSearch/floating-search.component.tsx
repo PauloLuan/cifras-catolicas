@@ -7,7 +7,6 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  Portal,
   Stack,
   useColorModeValue
 } from '@chakra-ui/react'
@@ -21,15 +20,15 @@ export const FloatingSearch = ({
   testId = 'floating-search-id'
 }: FloatingSearchProps) => {
   return (
-    <Portal>
-      <Stack spacing={4} bg="gray.500" p={4}>
-        <InputGroup color={'gray.500'} bg="gray.100" rounded="lg" size="lg">
+    <>
+      <Stack spacing={4} p={4}>
+        <InputGroup color={'gray.500'} bg="gray.300" rounded="lg" size="lg">
           <InputLeftElement pointerEvents="none">
             <SearchIcon />
           </InputLeftElement>
           <Input
             size="lg"
-            placeholder="O que você quer ouvir?"
+            placeholder="Pesquise por cantores ou músicas"
             _placeholder={{
               color: 'gray.500'
             }}
@@ -44,7 +43,7 @@ export const FloatingSearch = ({
           <Card />
         </Stack>
       </Stack>
-    </Portal>
+    </>
   )
 }
 

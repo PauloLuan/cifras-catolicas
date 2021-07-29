@@ -86,6 +86,7 @@ export const Highlights = () => {
       alignItems="center"
       justifyContent="center"
       data-testid="highlights"
+      zIndex={0}
     >
       <Flex w="full" pos="relative" overflow="hidden">
         <Flex h="400px" w="full" {...carouselStyle}>
