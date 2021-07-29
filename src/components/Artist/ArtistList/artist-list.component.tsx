@@ -186,21 +186,17 @@ const _groupByName = (artists: Artist[]): AlphabetGrouped[] => {
 
 export const ArtistList = ({ artists = teste }: ArtistListProps) => {
   const alphabetGrouped = _groupByName(artists)
+  const color = useColorModeValue('gray.600', 'white')
 
   return (
     <Box flex="1" w="full">
-      <Heading
-        m={2}
-        fontSize="4xl"
-        fontWeight="bold"
-        color={useColorModeValue('gray.600', 'white')}
-      >
+      <Heading m={2} fontSize="4xl" fontWeight="bold" color={color}>
         Artistas por ordem Alfabética:
       </Heading>
       {alphabetGrouped?.map(({ artists, letter }, index) => {
         return (
-          <>
-            <Heading m={2} fontSize="4xl" fontWeight="bold" color={'gray.600'}>
+          <Box key={index}>
+            <Heading m={2} fontSize="4xl" fontWeight="bold" color={color}>
               {letter}
             </Heading>
 
@@ -209,7 +205,7 @@ export const ArtistList = ({ artists = teste }: ArtistListProps) => {
                 <ArtistItem {...artist} key={artist.slug + index} />
               ))}
             </SimpleGrid>
-          </>
+          </Box>
         )
       })}
     </Box>

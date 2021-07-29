@@ -30,7 +30,6 @@ export const TopMusicItem = ({
       rounded="lg"
       _hover={{ bg: 'orange.50' }}
       role="group"
-      colorScheme="orange"
       cursor="pointer"
     >
       <Box w={[1 / 5, 1 / 3]}>

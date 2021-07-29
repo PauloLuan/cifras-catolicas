@@ -1,15 +1,11 @@
 import {
   Box,
-  Button,
   chakra,
   CloseButton,
   Flex,
   HStack,
   Icon,
   IconButton,
-  Input,
-  InputGroup,
-  InputLeftElement,
   Link,
   useColorMode,
   useColorModeValue,
@@ -19,25 +15,16 @@ import {
 import { Search } from '@components/Search'
 import { useViewportScroll } from 'framer-motion'
 import React from 'react'
-import {
-  AiFillHome,
-  AiOutlineInbox,
-  AiOutlineLogin,
-  AiOutlineMenu
-} from 'react-icons/ai'
-import { BsFillCameraVideoFill } from 'react-icons/bs'
+import { AiOutlineLogin, AiOutlineMenu } from 'react-icons/ai'
 import { FaMoon, FaSun } from 'react-icons/fa'
-import { FiSearch } from 'react-icons/fi'
 import { Logo } from '../Logo'
 
 const Navbar = () => {
   const mobileNav = useDisclosure()
 
   const { toggleColorMode: toggleMode } = useColorMode()
-  const text = useColorModeValue('dark', 'light')
   const SwitchIcon = useColorModeValue(FaMoon, FaSun)
 
-  const bg = useColorModeValue('white', 'gray.800')
   const ref = React.useRef()
   const [y, setY] = React.useState(0)
   const { height = 0 } = ref.current ? ref.current.getBoundingClientRect() : {}
@@ -53,30 +40,17 @@ const Navbar = () => {
       alignItems="center"
       as="a"
       aria-label="Cifras Católicas encontre as melhores cifras"
-      href={''}
-      bg="gray.50"
+      href={'#'}
       borderWidth="1px"
-      borderColor="gray.200"
       px="1em"
       minH="36px"
       rounded="md"
       fontSize="sm"
-      color="gray.800"
       outline="0"
       transition="all 0.3s"
-      _hover={{
-        bg: 'gray.300',
-        borderColor: 'gray.600'
-      }}
-      _active={{
-        borderColor: 'gray.200'
-      }}
-      _focus={{
-        boxShadow: 'outline'
-      }}
       ml={5}
     >
-      <Icon as={AiOutlineLogin} w="4" h="4" color="gray.600" mr="2" />
+      <Icon as={AiOutlineLogin} w="4" h="4" mr="2" />
       <Box as="strong" lineHeight="inherit" fontWeight="semibold">
         Login
       </Box>
@@ -93,7 +67,6 @@ const Navbar = () => {
       p={2}
       pb={4}
       m={2}
-      bg={bg}
       spacing={3}
       rounded="sm"
       shadow="sm"
@@ -113,7 +86,6 @@ const Navbar = () => {
         ref={ref}
         shadow={y > height ? 'sm' : undefined}
         transition="box-shadow 0.2s"
-        bg={bg}
         w="full"
         overflowY="hidden"
       >
@@ -130,19 +102,12 @@ const Navbar = () => {
               </Box>
             </Flex>
 
-            <Flex
-              justify="flex-end"
-              w="full"
-              maxW="824px"
-              align="center"
-              color="gray.400"
-            >
+            <Flex justify="flex-end" w="full" maxW="824px" align="center">
               <IconButton
                 size="md"
                 fontSize="lg"
                 aria-label={`Mudar para o modo Noturno`}
                 variant="ghost"
-                color="current"
                 ml={{ base: '0', md: '3' }}
                 onClick={toggleMode}
                 icon={<SwitchIcon />}
@@ -152,7 +117,6 @@ const Navbar = () => {
                 display={{ base: 'flex', md: 'none' }}
                 aria-label="Open menu"
                 fontSize="20px"
-                color={useColorModeValue('gray.800', 'inherit')}
                 variant="ghost"
                 icon={<AiOutlineMenu />}
                 onClick={mobileNav.onOpen}

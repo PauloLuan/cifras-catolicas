@@ -78,7 +78,6 @@ const Newsletter = () => {
             colSpan={{ base: 'auto', lg: 2 }}
             size="lg"
             type="submit"
-            colorScheme="orange"
           >
             Cadastrar
           </Button>

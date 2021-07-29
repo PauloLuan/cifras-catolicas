@@ -33,7 +33,6 @@ export const TopArtistItem = ({
       rounded="lg"
       bg={useColorModeValue('orange.50', 'orange.100')}
       role="group"
-      colorScheme="orange"
       cursor="pointer"
     >
       <Box w={1 / 3}>

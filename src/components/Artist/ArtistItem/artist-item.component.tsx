@@ -31,7 +31,6 @@ export const ArtistItem = ({ slug, nome, info, imagem }: Artist) => {
           bg={useColorModeValue('white', 'orange.100')}
           _hover={{ bg: 'orange.50' }}
           role="group"
-          colorScheme="orange"
           cursor="pointer"
         >
           <Box w={1 / 3}>
