@@ -68,7 +68,7 @@ const Newsletter = () => {
               size="lg"
               type="email"
               placeholder="Seu melhor e-mail..."
-              required="true"
+              required={true}
             />
           </GridItem>
           <Button
