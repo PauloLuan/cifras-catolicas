@@ -51,12 +51,12 @@ const Card = () => {
   return (
     <Flex w="full" h={'20'}>
       <Flex
-        bg={useColorModeValue('gray.100', 'gray.800')}
+        bg={useColorModeValue('gray.100', 'gray.700')}
         shadow="lg"
         rounded="lg"
         w="full"
         _hover={{
-          bg: 'gray.400',
+          bg: 'gray.500',
           cursor: 'pointer'
         }}
       >
@@ -90,7 +90,7 @@ const Card = () => {
           <chakra.p
             fontSize={['sm']}
             fontWeight="hairline"
-            color={useColorModeValue('gray.600', 'gray.400')}
+            color={useColorModeValue('gray.600', 'gray.200')}
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </chakra.p>
