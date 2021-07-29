@@ -22,7 +22,7 @@ export const FloatingSearch = ({
 }: FloatingSearchProps) => {
   return (
     <Portal>
-      <Stack spacing={4} bg="gray.300" p={4}>
+      <Stack spacing={4} bg="gray.500" p={4}>
         <InputGroup color={'gray.500'} bg="gray.100" rounded="lg" size="lg">
           <InputLeftElement pointerEvents="none">
             <SearchIcon />
