@@ -201,7 +201,7 @@ export const FloatingSearch = ({
           </InputLeftElement>
           <Input
             size="lg"
-            placeholder="Pesquise por cantores ou músicas"
+            placeholder="Pesquise por nomes de cantores"
             _placeholder={{
               color: 'gray.500'
             }}

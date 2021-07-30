@@ -2,6 +2,7 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  Box,
   Modal,
   ModalBody,
   ModalContent,
@@ -17,10 +18,21 @@ export interface SearchProps {
 export const Search = ({ name }: SearchProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
-    <>
-      <InputGroup m="20px" w="96" onClick={onOpen}>
-        <InputLeftElement color="gray.500" children={<FiSearch />} />
-        <Input placeholder="O que você quer tocar hoje?" />
+    <Box bg="blue" m={4} w="lg" h="full">
+      <InputGroup
+        h="full"
+        w="full"
+        onClick={onOpen}
+        boxShadow="lg"
+        bg="gray.100"
+      >
+        <InputLeftElement color="gray.600" children={<FiSearch />} />
+        <Input
+          _placeholder={{
+            color: 'gray.600'
+          }}
+          placeholder="O que você quer tocar hoje?"
+        />
       </InputGroup>
 
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -37,6 +49,6 @@ export const Search = ({ name }: SearchProps) => {
           </ModalBody>
         </ModalContent>
       </Modal>
-    </>
+    </Box>
   )
 }
