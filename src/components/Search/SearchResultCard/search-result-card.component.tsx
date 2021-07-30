@@ -4,7 +4,7 @@ import React from 'react'
 export interface SearchResultCardProps {
   testId?: string
   artistName: string
-  image?: string
+  image?: string | null
   musicName: string
 }
 
