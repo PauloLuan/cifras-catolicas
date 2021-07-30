@@ -216,6 +216,7 @@ export const FloatingSearch = ({
           {searchResults.map((artist) => (
             <SearchResultCard
               key={artist.slug}
+              slug={artist.slug}
               artistName={artist.nome}
               musicName={artist.slug}
               testId={artist.slug}

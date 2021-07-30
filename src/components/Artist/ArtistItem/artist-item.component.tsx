@@ -3,11 +3,10 @@ import {
   Box,
   Center,
   Flex,
+  Link,
   Text,
   useColorModeValue,
-  VStack,
-  LinkBox,
-  Link
+  VStack
 } from '@chakra-ui/react'
 import { Artist } from '@types/Artist'
 import NextLink from 'next/link'
