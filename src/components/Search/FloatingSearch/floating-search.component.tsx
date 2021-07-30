@@ -11,6 +11,7 @@ import {
   useColorModeValue
 } from '@chakra-ui/react'
 import React from 'react'
+import { SearchResultCard } from '../SearchResultCard'
 
 export interface FloatingSearchProps {
   testId?: string
@@ -36,66 +37,33 @@ export const FloatingSearch = ({
         </InputGroup>
 
         <Stack>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          <SearchResultCard
+            artistName="Padre Zezinho"
+            musicName="Em tuas mãos estarei"
+            testId="1"
+            image="https://bit.ly/code-beast"
+          />
+
+          <SearchResultCard
+            artistName="Glória santa"
+            musicName="Em tuas mãos estarei"
+            testId="2"
+            image="https://bit.ly/code-beast"
+          />
+          <SearchResultCard
+            artistName="Padre Fábio de Melo"
+            musicName="Jesus é meu rei"
+            testId="3"
+            image="https://bit.ly/code-beast"
+          />
+          <SearchResultCard
+            artistName="Ludmila Farias"
+            musicName="Vida santa quero ter"
+            testId="4"
+            image="https://bit.ly/code-beast"
+          />
         </Stack>
       </Stack>
     </>
-  )
-}
-
-const Card = () => {
-  return (
-    <Flex w="full" h={'20'}>
-      <Flex
-        bg={useColorModeValue('gray.100', 'gray.700')}
-        shadow="lg"
-        rounded="lg"
-        w="full"
-        _hover={{
-          bg: 'gray.500',
-          cursor: 'pointer'
-        }}
-      >
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          m={[2, 4]}
-        >
-          <Avatar
-            size="md"
-            name="Christian Nwamba"
-            src="https://bit.ly/code-beast"
-          />
-        </Box>
-
-        <Box
-          display="flex"
-          p={[0, 2]}
-          alignItems="center"
-          justifyContent="left"
-        >
-          <chakra.h1
-            fontSize={['sm']}
-            fontWeight="bold"
-            color={useColorModeValue('gray.800', 'white')}
-          >
-            Padre Zezinho
-          </chakra.h1>
-          <chakra.p m={2}>-</chakra.p>
-          <chakra.p
-            fontSize={['sm']}
-            fontWeight="hairline"
-            color={useColorModeValue('gray.600', 'gray.200')}
-          >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </chakra.p>
-        </Box>
-      </Flex>
-    </Flex>
   )
 }

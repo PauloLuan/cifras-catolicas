@@ -25,6 +25,8 @@ const Navbar = () => {
   const { toggleColorMode: toggleMode } = useColorMode()
   const SwitchIcon = useColorModeValue(FaMoon, FaSun)
 
+  const color = useColorModeValue()
+
   const ref = React.useRef()
   const [y, setY] = React.useState(0)
   const { height = 0 } = ref.current ? ref.current.getBoundingClientRect() : {}
@@ -41,7 +43,9 @@ const Navbar = () => {
       as="a"
       aria-label="Cifras Católicas encontre as melhores cifras"
       href={'#'}
-      borderWidth="1px"
+      borderWidth="thin"
+      borderColor="orange.500"
+      color="orange.600"
       px="1em"
       minH="36px"
       rounded="md"
@@ -88,6 +92,7 @@ const Navbar = () => {
         transition="box-shadow 0.2s"
         w="full"
         overflowY="hidden"
+        bg={color}
       >
         <chakra.div h="4.5rem" mx="auto" maxW="1200px">
           <Flex w="full" h="full" px="6" align="center" justify="space-between">
@@ -107,7 +112,7 @@ const Navbar = () => {
                 size="md"
                 fontSize="lg"
                 aria-label={`Mudar para o modo Noturno`}
-                variant="ghost"
+                variant="outline"
                 ml={{ base: '0', md: '3' }}
                 onClick={toggleMode}
                 icon={<SwitchIcon />}
@@ -117,7 +122,7 @@ const Navbar = () => {
                 display={{ base: 'flex', md: 'none' }}
                 aria-label="Open menu"
                 fontSize="20px"
-                variant="ghost"
+                variant="outline"
                 icon={<AiOutlineMenu />}
                 onClick={mobileNav.onOpen}
               />
