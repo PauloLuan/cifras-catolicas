@@ -70,14 +70,14 @@ export const SearchResultCard = ({
               >
                 {artistName}
               </chakra.h1>
-              <chakra.p m={2}>-</chakra.p>
+              {/* <chakra.p m={2}>-</chakra.p>
               <chakra.p
                 fontSize={['sm']}
                 fontWeight="hairline"
                 color={useColorModeValue('gray.600', 'gray.200')}
               >
                 {musicName}
-              </chakra.p>
+              </chakra.p> */}
             </Box>
           </Flex>
         </Flex>
