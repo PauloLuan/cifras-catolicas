@@ -21,7 +21,7 @@ const breakpoints = createBreakpoints({
 
 const customTheme = extendTheme(
   {
-    config: { initialColorMode: 'dark', useSystemColorMode: false },
+    config: { initialColorMode: 'light', useSystemColorMode: false },
     fonts,
     breakpoints,
     shadows: {
