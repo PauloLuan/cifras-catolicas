@@ -44,8 +44,8 @@ const Navbar = () => {
       aria-label="Cifras Católicas encontre as melhores cifras"
       href={'#'}
       borderWidth="thin"
-      borderColor="orange.500"
-      color="orange.600"
+      borderColor="orange.200"
+      color="orange.200"
       px="1em"
       minH="36px"
       rounded="md"
@@ -94,7 +94,7 @@ const Navbar = () => {
         overflowY="hidden"
         bg={color}
       >
-        <chakra.div h="4.5rem" mx="auto" maxW="1200px">
+        <chakra.div h="4.5rem" mx="auto" maxW="6xl">
           <Flex w="full" h="full" px="6" align="center" justify="space-between">
             <Flex align="center">
               <Link href="/">
