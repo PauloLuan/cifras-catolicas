@@ -1,9 +1,4 @@
-import {
-  extendTheme,
-  theme,
-  withDefaultColorScheme,
-  withDefaultProps
-} from '@chakra-ui/react'
+import { extendTheme, theme, withDefaultColorScheme } from '@chakra-ui/react'
 import { createBreakpoints } from '@chakra-ui/theme-tools'
 import '@fontsource/roboto'
 
