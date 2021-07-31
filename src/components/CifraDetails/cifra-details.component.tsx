@@ -105,7 +105,13 @@ export const MainContent = ({
         align="stretch"
       >
         <Heading>{music.nome}</Heading>
-        <Text fontWeight={600}>{artist.nome}</Text>
+        <Text fontWeight={600}>Artista: {artist.nome}</Text>
+        <Center>
+          <Text fontWeight={100} fontStyle="italic">
+            👀 <strong>Olho na Dica:</strong> Passe o mouse 🖱️ ou clique sobre a
+            cifra!
+          </Text>
+        </Center>
         <Cifra cifra={music.cifra} />
       </VStack>
     </Box>
@@ -141,7 +147,7 @@ const SocialProfileWithImage = ({ artist }: CifraDetailsProps) => {
             </Heading>
           </Stack>
 
-          <Stack direction={'row'} justify={'center'} spacing={6}>
+          {/* <Stack direction={'row'} justify={'center'} spacing={6}>
             <Stack spacing={0} align={'center'}>
               <Text fontWeight={600}>23k</Text>
               <Text fontSize={'sm'} color={'gray.500'}>
@@ -154,10 +160,10 @@ const SocialProfileWithImage = ({ artist }: CifraDetailsProps) => {
                 Followers
               </Text>
             </Stack>
-          </Stack>
+          </Stack> */}
         </Box>
 
-        <Box p={4}>
+        {/* <Box p={4}>
           <Button
             w={'full'}
             mt={8}
@@ -186,7 +192,7 @@ const SocialProfileWithImage = ({ artist }: CifraDetailsProps) => {
               {link.name}
             </NavItem>
           ))}
-        </Box>
+        </Box> */}
       </Box>
     </Center>
   )
