@@ -26,6 +26,7 @@ const Navbar = () => {
   const SwitchIcon = useColorModeValue(FaMoon, FaSun)
 
   const color = useColorModeValue()
+  const orangeColor = useColorModeValue('orange.600', 'orange.200')
 
   const ref = React.useRef()
   const [y, setY] = React.useState(0)
@@ -44,8 +45,8 @@ const Navbar = () => {
       aria-label="Cifras Católicas encontre as melhores cifras"
       href={'#'}
       borderWidth="thin"
-      borderColor="orange.200"
-      color="orange.200"
+      borderColor={orangeColor}
+      color={orangeColor}
       px="1em"
       minH="36px"
       rounded="md"
@@ -117,7 +118,7 @@ const Navbar = () => {
                 onClick={toggleMode}
                 icon={<SwitchIcon />}
               />
-              {LoginButton}
+              {/* {LoginButton} */}
               <IconButton
                 display={{ base: 'flex', md: 'none' }}
                 aria-label="Open menu"

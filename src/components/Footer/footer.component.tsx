@@ -25,6 +25,7 @@ const SocialButton = ({
   return (
     <chakra.button
       bg={'orange.100'}
+      color={'orange.900'}
       rounded={'full'}
       w={12}
       h={12}
