@@ -10,14 +10,15 @@ import {
 } from '@chakra-ui/react'
 import { Artist } from '@types/Artist'
 import NextLink from 'next/link'
+import { deburr } from 'lodash'
 
 export const ArtistItem = ({ slug, nome, info, imagem }: Artist) => {
   return (
     <NextLink
-      as={`/artistas/${slug}`}
+      as={`/artistas/${deburr(slug)}`}
       href={`/artistas/[slug]`}
       passHref
-      key={`/artistas/${slug}`}
+      key={`/artistas/${deburr(slug)}`}
     >
       <Link style={{ textDecoration: 'none' }}>
         <Flex

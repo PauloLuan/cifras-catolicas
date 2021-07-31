@@ -2,6 +2,7 @@ import { ArtistDetails } from '@components/Artist/ArtistDetails'
 import { Layout } from '@components/Layout'
 import { Artist, ArtistListItem } from '@types/Artist'
 import axios from 'axios'
+import { deburr } from 'lodash'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 
 const BASE_ENDPOINT = `https://api.musicasparamissa.com.br/cifrascatolicas/artistas`
@@ -14,7 +15,9 @@ function wait(ml) {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const slug = context?.params?.artist
-  const ENDPOINT = `https://api.musicasparamissa.com.br/cifrascatolicas/artistas/${slug}`
+  const ENDPOINT = deburr(
+    `https://api.musicasparamissa.com.br/cifrascatolicas/artistas/${slug}`
+  )
   let artist
 
   try {

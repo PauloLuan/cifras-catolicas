@@ -2,7 +2,8 @@ import { Box, Heading, Link, Spinner } from '@chakra-ui/react'
 import { Layout } from '@components/Layout'
 import { ArtistListItem } from '@types/Artist'
 import axios from 'axios'
-import { GetStaticPaths, InferGetStaticPropsType, NextPage } from 'next'
+import { deburr } from 'lodash'
+import { InferGetStaticPropsType, NextPage } from 'next'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -63,10 +64,10 @@ const ListArtists: NextPage<{ artists: ArtistListItem[] }> = ({
           {artists &&
             artists.map((artist) => (
               <NextLink
-                as={`/artistas/${artist.slug}`}
-                href={`/artistas/[slug]`}
+                as={deburr(`/artistas/${artist.slug}`)}
+                href={deburr(`/artistas/[slug]`)}
                 passHref
-                key={`/artistas/${artist.slug}`}
+                key={deburr(`/artistas/${artist.slug}`)}
               >
                 <Link>
                   <Heading as="h3" size="lg">

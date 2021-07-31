@@ -6,6 +6,7 @@ import {
   Link,
   useColorModeValue
 } from '@chakra-ui/react'
+import { deburr } from 'lodash'
 import NextLink from 'next/link'
 import React from 'react'
 
@@ -26,10 +27,10 @@ export const SearchResultCard = ({
 }: SearchResultCardProps) => {
   return (
     <NextLink
-      as={`/artistas/${slug}`}
+      as={`/artistas/${deburr(slug)}`}
       href={`/artistas/[slug]`}
       passHref
-      key={`/artistas/${slug}`}
+      key={`/artistas/${deburr(slug)}`}
     >
       <Link style={{ textDecoration: 'none' }}>
         <Flex

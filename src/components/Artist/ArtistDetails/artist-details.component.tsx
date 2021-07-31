@@ -12,6 +12,7 @@ import { Artist } from '@types/Artist'
 import NextLink from 'next/link'
 import { BsMusicNoteList } from 'react-icons/bs'
 import { RiMusicLine } from 'react-icons/ri'
+import { deburr } from 'lodash'
 
 export interface DetailsProps {
   artist: Artist
@@ -23,10 +24,10 @@ const renderMusicList = ({ artist }: DetailsProps): React.ReactNode => {
       <>
         <ListItem key={music.slug}>
           <NextLink
-            as={`/artistas/${artist.slug}/cifra/${music.slug}`}
-            href={`/artistas/${artist.slug}/cifra/[slug]`}
+            as={deburr(`/artistas/${artist.slug}/cifra/${music.slug}`)}
+            href={deburr(`/artistas/${artist.slug}/cifra/[slug]`)}
             passHref
-            key={`/artistas/${artist.slug}/cifra/${music.slug}`}
+            key={deburr(`/artistas/${artist.slug}/cifra/${music.slug}`)}
           >
             <Text as="a">
               <ListIcon as={RiMusicLine} color="orange.500" />

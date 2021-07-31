@@ -1,8 +1,8 @@
-import { Text } from '@chakra-ui/react'
 import { CifraDetails } from '@components/CifraDetails'
 import { Layout } from '@components/Layout'
 import { Artist, ArtistListItem } from '@types/Artist'
 import axios from 'axios'
+import { deburr } from 'lodash'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 
 const BASE_ENDPOINT = `https://api.musicasparamissa.com.br/cifrascatolicas/artistas`
@@ -16,7 +16,9 @@ function wait(ml) {
 export const getStaticProps: GetStaticProps = async (context) => {
   const artistSlug = context?.params?.artist
   const selectedCipherSlug = context?.params?.cipher
-  const ENDPOINT = `https://api.musicasparamissa.com.br/cifrascatolicas/artistas/${artistSlug}`
+  const ENDPOINT = deburr(
+    `https://api.musicasparamissa.com.br/cifrascatolicas/artistas/${artistSlug}`
+  )
   let artist
 
   try {
@@ -50,7 +52,9 @@ export const getStaticPaths: GetStaticPaths<{
   const paths = []
 
   for await (const artistItem of artists) {
-    const ENDPOINT = `https://api.musicasparamissa.com.br/cifrascatolicas/artistas/${artistItem.slug}`
+    const ENDPOINT = deburr(
+      `https://api.musicasparamissa.com.br/cifrascatolicas/artistas/${artistItem.slug}`
+    )
 
     try {
       const artistResponse = await axios.get<Artist>(ENDPOINT)
