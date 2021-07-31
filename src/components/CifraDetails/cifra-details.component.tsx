@@ -78,7 +78,11 @@ export const MainContent = ({
         ml={[1, 4]}
       >
         <VStack
-          divider={<StackDivider borderColor="gray.200" />}
+          divider={
+            <StackDivider
+              borderColor={useColorModeValue('gray.400', 'gray.50')}
+            />
+          }
           spacing={4}
           align="stretch"
         >
@@ -100,7 +104,11 @@ export const MainContent = ({
       ml={[1, 4]}
     >
       <VStack
-        divider={<StackDivider borderColor="gray.200" />}
+        divider={
+          <StackDivider
+            borderColor={useColorModeValue('gray.400', 'gray.50')}
+          />
+        }
         spacing={4}
         align="stretch"
       >
