@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { SyntheticEvent, useState } from 'react'
 import {
   chakra,
   Box,
@@ -13,25 +13,42 @@ import {
   Icon
 } from '@chakra-ui/react'
 
+import { subscribe } from './newsletter.service'
+
+const Feature = (props) => (
+  <Flex alignItems="center" color={useColorModeValue(null, 'white')}>
+    <Icon
+      boxSize={4}
+      mr={1}
+      color="green.600"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path
+        fillRule="evenodd"
+        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+        clipRule="evenodd"
+      ></path>
+    </Icon>
+    {props.children}
+  </Flex>
+)
+
 const Newsletter = () => {
-  const Feature = (props) => (
-    <Flex alignItems="center" color={useColorModeValue(null, 'white')}>
-      <Icon
-        boxSize={4}
-        mr={1}
-        color="green.600"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path
-          fillRule="evenodd"
-          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-          clipRule="evenodd"
-        ></path>
-      </Icon>
-      {props.children}
-    </Flex>
-  )
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+
+  const _clearState = () => {
+    setName('')
+    setEmail('')
+  }
+
+  const _handleSubmit = async (event: SyntheticEvent) => {
+    event.preventDefault()
+    await subscribe({ name, email })
+    _clearState()
+  }
+
   return (
     <Box w="full">
       <Box w={{ base: 'full' }} textAlign={{ base: 'center' }} mx="auto">
@@ -61,23 +78,42 @@ const Newsletter = () => {
           mx="auto"
           mb={8}
         >
-          <GridItem as="label" colSpan={{ base: 'auto', lg: 4 }}>
+          <GridItem as="label" colSpan={{ base: 'auto', lg: 6 }}>
+            <VisuallyHidden>Seu Email</VisuallyHidden>
+            <Input
+              mt={0}
+              size="lg"
+              type="text"
+              placeholder="Seu nome"
+              errorBorderColor="red.300"
+              _placeholder={{ color: 'gray.500' }}
+              borderColor="gray.500"
+              required={true}
+              onChange={(event) => setName(event.target.value)}
+            />
+          </GridItem>
+          <GridItem as="label" colSpan={{ base: 'auto', lg: 6 }}>
             <VisuallyHidden>Seu Email</VisuallyHidden>
             <Input
               mt={0}
               size="lg"
               type="email"
               placeholder="Seu melhor e-mail..."
+              _placeholder={{ color: 'gray.500' }}
+              borderColor="gray.500"
+              errorBorderColor="red.300"
               required={true}
+              onChange={(event) => setEmail(event.target.value)}
             />
           </GridItem>
           <Button
             as={GridItem}
             w="full"
             variant="solid"
-            colSpan={{ base: 'auto', lg: 2 }}
+            colSpan={{ base: 'auto', lg: 6 }}
             size="lg"
             type="submit"
+            onClick={_handleSubmit}
           >
             Cadastrar
           </Button>

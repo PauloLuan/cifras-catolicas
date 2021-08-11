@@ -7,7 +7,8 @@
       "@configs/*": ["configs/*"],
       "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"],
-      "@types/*": ["@types/*"]
+      "@types/*": ["@types/*"],
+      "@middlewares/*": ["lib/middlewares/*"]
     },
     "allowJs": true,
     "alwaysStrict": true,
