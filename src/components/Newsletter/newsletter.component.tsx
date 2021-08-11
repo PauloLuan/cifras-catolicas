@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react'
 
 import { subscribe } from './newsletter.service'
+import Swal from 'sweetalert2'
 
 const Feature = (props) => (
   <Flex alignItems="center" color={useColorModeValue(null, 'white')}>
@@ -43,10 +44,27 @@ const Newsletter = () => {
     setEmail('')
   }
 
+  const _handleSuccess = () => {
+    Swal.fire(
+      'Inscrito com sucesso!',
+      'Enviamos uma mensagem no seu e-mail, Deus lhe abençoe!',
+      'success'
+    )
+  }
+
+  const _handleError = () => {
+    Swal.fire(
+      'Opsss!',
+      'Tivemos um problema, tente novamente em alguns instantes!',
+      'error'
+    )
+  }
+
   const _handleSubmit = async (event: SyntheticEvent) => {
     event.preventDefault()
     await subscribe({ name, email })
     _clearState()
+    _handleSuccess()
   }
 
   return (
@@ -79,8 +97,9 @@ const Newsletter = () => {
           mb={8}
         >
           <GridItem as="label" colSpan={{ base: 'auto', lg: 6 }}>
-            <VisuallyHidden>Seu Email</VisuallyHidden>
+            <VisuallyHidden>Digite seu nome</VisuallyHidden>
             <Input
+              value={name}
               mt={0}
               size="lg"
               type="text"
@@ -93,8 +112,9 @@ const Newsletter = () => {
             />
           </GridItem>
           <GridItem as="label" colSpan={{ base: 'auto', lg: 6 }}>
-            <VisuallyHidden>Seu Email</VisuallyHidden>
+            <VisuallyHidden>Digite seu email</VisuallyHidden>
             <Input
+              value={email}
               mt={0}
               size="lg"
               type="email"
