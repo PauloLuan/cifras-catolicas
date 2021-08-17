@@ -15,7 +15,7 @@ This is my [Next.js](https://nextjs.org/) boilerplate
 
 ## 📝 Minimal Requirements
 
-- NodeJs 14.x
+- NodeJs 16.x
 
 ## Getting Started
 
