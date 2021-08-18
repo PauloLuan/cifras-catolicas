@@ -13,7 +13,7 @@ function wait(ml) {
   return new Promise((resolve) => setTimeout(resolve, ml))
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+const getStaticProps: GetStaticProps = async (context) => {
   const slug = context?.params?.artist
   const ENDPOINT = deburr(
     `https://api.musicasparamissa.com.br/cifrascatolicas/artistas/${slug}`
@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
-export const getStaticPaths: GetStaticPaths<{ artist: string }> = async () => {
+const getStaticPaths: GetStaticPaths<{ artist: string }> = async () => {
   const baseResponse = await axios.get<ArtistListItem[]>(BASE_ENDPOINT)
   const artists = baseResponse.data
 
