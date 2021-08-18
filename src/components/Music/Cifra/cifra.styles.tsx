@@ -13,4 +13,8 @@ export const Container = styled(Box)`
       background: #f70;
     }
   }
+
+  strong {
+    display: block;
+  }
 `
