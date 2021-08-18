@@ -43,7 +43,7 @@ const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
-export const getStaticPaths: GetStaticPaths<{
+const getStaticPaths: GetStaticPaths<{
   artist: string
   cipher: string
 }> = async () => {
