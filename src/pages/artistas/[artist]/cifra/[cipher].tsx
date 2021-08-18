@@ -13,7 +13,7 @@ function wait(ml) {
   return new Promise((resolve) => setTimeout(resolve, ml))
 }
 
-const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const artistSlug = context?.params?.artist
   const selectedCipherSlug = context?.params?.cipher
   const ENDPOINT = deburr(
@@ -43,7 +43,7 @@ const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
-const getStaticPaths: GetStaticPaths<{
+export const getStaticPaths: GetStaticPaths<{
   artist: string
   cipher: string
 }> = async () => {
