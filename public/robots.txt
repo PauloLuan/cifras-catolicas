@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://cifras-catolicas.vercel.app/
+
+# Sitemaps
+Sitemap: https://cifras-catolicas.vercel.app/sitemap.xml
