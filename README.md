@@ -1,6 +1,8 @@
 ## 💡 Introduction
 
-This is my [Next.js](https://nextjs.org/) boilerplate
+This is a website built with NextJS for guitar chords focused on catolic musics. 
+
+You can checkout a [live version here](https://cifrascatolicas.com.br/)
 
 <span id="top"></span>
 
@@ -9,8 +11,8 @@ This is my [Next.js](https://nextjs.org/) boilerplate
 </p>
 
 <p align="center">
-    <a href="https://github.com/PauloLuan/next-js-boilerplate/actions/workflows/ci.yml"><img src="https://img.shields.io/github/workflow/status/pauloluan/next-js-boilerplate/ci?style=for-the-badge"></a>
-    <a href="https://github.com/PauloLuan/next-js-boilerplate/actions/workflows/ci.yml"><img src="https://forthebadge.com/images/badges/it-works-why.svg"></a>
+    <a href="https://github.com/PauloLuan/cifras-catolicas/actions/workflows/ci.yml"><img src="https://img.shields.io/github/workflow/status/pauloluan/cifras-catolicas/ci?style=for-the-badge"></a>
+    <a href="https://github.com/PauloLuan/cifras-catolicas/actions/workflows/ci.yml"><img src="https://forthebadge.com/images/badges/it-works-why.svg"></a>
 </p>
 
 ## 📝 Minimal Requirements
@@ -22,7 +24,7 @@ This is my [Next.js](https://nextjs.org/) boilerplate
 To create a project from this boilerplate run:
 
 ```bash
-yarn create next-app chakra-studies --example https://github.com/PauloLuan/next-js-boilerplate
+yarn create next-app chakra-studies --example https://github.com/PauloLuan/cifras-catolicas
 ```
 
 Then, run the development server:
@@ -66,8 +68,6 @@ This project uses:
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
 - [Prettier](https://prettier.io/)
 - [Eslint](https://eslint.org/)
-
-This project was inspired and extended from [nextjs-with-chakra-ui-boilerplate](https://github.com/Lukazovic/nextjs-with-chakra-ui-boilerplate)
 
 ## :pencil: Author
 
